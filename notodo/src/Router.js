@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from './components/loginPage/loginPage';
 import CalenderPage from './components/calenderPage/calenderPage';
 import NotodoPage from './components/notodoPage/notodoPage';
+import KakaoLogin from './components/loginPage/kakaoLogin';
 import React from 'react';
 
 function Router() {
@@ -9,6 +10,7 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<LoginPage />} />
+        <Route path='/kakaologin' element={<KakaoLogin />} />
         <Route path='/calender' element={<CalenderPage />} />
         <Route path='/notodo' element={<NotodoPage />} />
       </Routes>
