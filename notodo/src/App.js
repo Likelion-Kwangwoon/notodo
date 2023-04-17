@@ -7,7 +7,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <p> 안녕</p>
       <Router />
     </ThemeProvider>
   );
