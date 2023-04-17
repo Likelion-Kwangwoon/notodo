@@ -1,7 +1,14 @@
 import styled from "styled-components";
 
+export const Wrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 60px 0 30px;
+`
+
 export const StateUl = styled.ul`
-  text-align: right;
+  color: ${(props) => props.theme.text.black};
 `;
 
 export const StateLi = styled.li`

@@ -3,15 +3,16 @@ import charRed from "../../assets/char-red.svg"
 import charYellow from "../../assets/char-yellow.svg"
 import charGrren from "../../assets/char-green.svg"
 import * as S from "./style"
+import UserInfo from "../UserInfo";
 
 export default function calenderPage() {
   return (
     <>
-      <div>
-        {/* user 정보 */}
+      <S.Wrap>
+        <UserInfo />
         <S.StateUl>
           <S.StateLi>
-            <img src={charRed} alt="" />
+            <img src={charGrren} alt="" />
             <span>10</span>
           </S.StateLi>
           <S.StateLi>
@@ -19,11 +20,11 @@ export default function calenderPage() {
             <span>10</span>
           </S.StateLi>
           <S.StateLi>
-            <img src={charGrren} alt="" />
+            <img src={charRed} alt="" />
             <span>10</span>
           </S.StateLi>
         </S.StateUl>
-      </div>
+      </S.Wrap>
       <Calendar />
     </>
   )

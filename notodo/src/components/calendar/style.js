@@ -12,6 +12,7 @@ export const Header = styled.div`
   padding: 0 16px;
   align-items: center;
   font-size: 20px;
+  color: ${(props) => props.theme.text.black};
   margin-bottom: 28px;
 
   & > button {
@@ -49,6 +50,7 @@ export const RowWrap = styled.div`
   font-size: 14px;
   box-sizing: border-box;
   height: 92px;
+  color: ${(props) => props.theme.text.black};
 `;
 
 
