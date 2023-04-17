@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Wrap = styled.div`
-  margin: 0 20px;
   min-width: 350px;
   background-color: ${(props) => props.theme.bg.white};
   box-sizing: border-box;
