@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
 
   :root {
     text-align: center;
+    max-width: 500px;
     font-family: 'Pretendard';
     margin: 0 auto;
   }
