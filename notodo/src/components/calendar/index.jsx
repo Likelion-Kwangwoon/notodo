@@ -7,6 +7,7 @@ import weekOfYear from "dayjs/plugin/weekOfYear"
 import iconLeftArrow from "../../assets/icon-leftArrow.svg"
 import iconRightArrow from "../../assets/icon-rightArrow.svg"
 import charRed from "../../assets/char-red.svg"
+import { useNavigate } from "react-router-dom";
 
 dayjs.extend(objectPlugin);
 dayjs.extend(weekdayPlugin);
@@ -15,6 +16,7 @@ dayjs.extend(weekOfYear)
 export default function Calendar() {
   const [currentMonth, setCurrentMonth] = useState(dayjs());
   const [arrayOfDays, setArrayOfDays] = useState([]);
+  const navigate = useNavigate()
 
   const calcPercentage = e => {
     // 아이콘 출력을 위한 % 계산 함수
@@ -22,7 +24,7 @@ export default function Calendar() {
 
   const handleGetDay = (date) => {
     // console.log(date)
-    // todolist 페이지 이동
+    navigate('/notodo')    
   }
 
   const nextMonth = () =>{
