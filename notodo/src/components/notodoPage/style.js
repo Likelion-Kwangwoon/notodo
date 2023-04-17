@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Div = styled.div`
   width: 390px;
   height: 844px;
-  background: #FCFCFC;
+  background: ${props => props.theme.bg.main};
   margin: 0 auto;
 `
 
@@ -11,7 +11,7 @@ export const Header = styled.div`
   box-sizing: border-box;
   width: 390px;
   height: 221px;
-  background: #FFFFFF;
+  background: ${props => props.theme.bg.white};
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   padding-top: 86px;
   position: relative;
@@ -59,14 +59,14 @@ export const PickBtn = styled.button`
   & p:first-child {
     font-size: 14px;
     line-height: 18px;
-    color: #B9B9B9;
+    color: ${props => props.theme.text.gray3};
   }
 
   & p:nth-child(2) {
     height: 27px;
     font-size: 18px;
     line-height: 22px;
-    color: #666666;
+    color: ${props => props.theme.text.gray1};
     margin-top: 8px;
     z-index: 10;
   }
@@ -75,14 +75,14 @@ export const PickBtn = styled.button`
     margin: 5px auto 0 auto;
     width: 28px;
     height: 28px;
-    background: #FFED95;
+    background: ${props => props.theme.action.yellow};
     border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 
     & p:first-child {
-      color: #222222;
+      color: ${props => props.theme.text.black};
       font-size: 18px;
       line-height: 22px;
     }
@@ -97,7 +97,7 @@ export const NotodoWrap = styled.ul`
 
 export const NotodoLi = styled.li`
   height: 50px;
-  border-bottom: 0.5px solid #D3D3D3;
+  border-bottom: 0.5px solid ${props => props.theme.text.gray2};
   display: flex;
   align-items: center;
   padding-left: 2px;
@@ -121,7 +121,7 @@ export const ContentWrap = styled.div`
     outline: none;
     background: transparent;
     width: 5px;
-    color: #B9B9B9;
+    color: ${props => props.theme.text.gray3};
     font-size: 14px;
     padding: 0;
   }
@@ -129,7 +129,7 @@ export const ContentWrap = styled.div`
   & > p {
     font-size: 14px;
     line-height: 17px;
-    color: #666666;
+    color: ${props => props.theme.text.gray1};
   }
 
   & > p:nth-child(2) {
@@ -141,14 +141,14 @@ export const Footer = styled.div`
   box-sizing: border-box;
   width: 390px;
   padding: 0 0 32px 0;
-  background: #FFFFFF;
+  background: ${props => props.theme.bg.white};
   position: fixed;
   bottom: 0;
   display: flex;
   align-items: center;
   font-size: 15px;
   line-height: 13px;
-  color: #666666;
+  color: ${props => props.theme.text.gray1};
 
   & > div:first-child {
     width: 77px;
@@ -164,7 +164,7 @@ export const Footer = styled.div`
     margin: 0 auto;
     & > span:first-child {
       font-weight: 600;
-      color: #A4D879;
+      color: ${props => props.theme.action.green};
       margin-right: 5px;
     }
   }
@@ -174,7 +174,7 @@ export const Footer = styled.div`
     margin: 0 auto;
     & > span:first-child {
       font-weight: 600;
-      color: #F1937D;
+      color: ${props => props.theme.action.red};
       margin-right: 5px;
     }
   }
@@ -185,7 +185,7 @@ export const Footer = styled.div`
   }
 
   & > div > span:nth-child(5) {
-    color: #F1937D;
+    color: ${props => props.theme.action.red};
   }
 `
 
