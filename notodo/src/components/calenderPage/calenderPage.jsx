@@ -1,8 +1,6 @@
 
-function CalenderPage() {
+export default function calenderPage() {
   return (
-    <div></div>
-  );
+    <div>calenderPage</div>
+  )
 }
-
-export default CalenderPage;
