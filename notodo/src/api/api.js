@@ -11,7 +11,7 @@ const instanceUtil = axios.create({
 
 export const getContent = async (date) => {
   try {
-    const response = await instanceUtil.get(`/view?date=${date}}`);
+    const response = await instanceUtil.get(`/notodo/view?date=${date}}`);
 
     return response.data;
   } catch (error) {
@@ -22,7 +22,7 @@ export const getContent = async (date) => {
 
 export const postList = async (data) => {
   try {
-    const response = await instanceUtil.post(`/notodo/create?`, data);
+    const response = await instanceUtil.post(`/notodo/create`, data);
 
     return response.data;
   } catch (error) {
@@ -33,7 +33,7 @@ export const postList = async (data) => {
 
 export const postSuccess = async (data) => {
   try {
-    const response = await instanceUtil.post(`/notodo/suc`, data);
+    const response = await instanceUtil.post(`/notodo/setsuccess`, data);
 
     return response.data;
   } catch (error) {
@@ -44,7 +44,7 @@ export const postSuccess = async (data) => {
 
 export const postFail = async (data) => {
   try {
-    const response = await instanceUtil.post(`/notodo/fail`, data);
+    const response = await instanceUtil.post(`/notodo/setFail`, data);
 
     return response.data;
   } catch (error) {
