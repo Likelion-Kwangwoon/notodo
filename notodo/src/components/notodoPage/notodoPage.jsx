@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useRef } from 'react';
 import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function NotodoPage() {
   // 임시 데이터 ^0^
@@ -53,11 +54,16 @@ function NotodoPage() {
   const [notodoList, setNotodoList] = useState(data)
   const [inputValue, setInputValue] = useState("")
   const [isAdding, setIsAdding] = useState(false)
-  const inputRef = useRef(null);
+  const navigate = useNavigate()
+  const inputRef = useRef(null)
 
   useEffect(() => {
-    inputRef.current?.focus();
-  }, [notodoList]);
+    inputRef.current?.focus()
+  }, [notodoList])
+
+  useEffect(() => {
+    getInputWidth()
+  }, [inputValue])
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value)
@@ -65,16 +71,26 @@ function NotodoPage() {
 
   const getInputWidth = useCallback(() => {
     if (!inputRef.current) {
-      return;
+      return
     }
-    const inputValue = inputRef.current.value || '';
-    const inputWidth = inputValue.length * 12;
-    inputRef.current.style.width = `${inputWidth}px`;
-  }, []);
+    const inputValue = inputRef.current.value || ''
+    const inputWidth = getTextWidth(inputValue, inputRef.current.style.font)
+    inputRef.current.style.width = `${inputWidth}px`
+  }, [])
 
-  useEffect(() => {
-    getInputWidth();
-  }, [getInputWidth, inputValue]);
+  function getTextWidth(text, font) {
+    const span = document.createElement("span")
+    span.style.font = font
+    span.style.visibility = "hidden"
+    span.style.position = "absolute"
+    span.style.padding = "0px"
+    span.style.boxSizing = "border-box"
+    span.innerText = text
+    document.body.appendChild(span)
+    const width = span.offsetWidth
+    document.body.removeChild(span)
+    return width * 0.87
+  }
 
   const handleInputBlur = () => {
     if (inputValue.trim() !== "") {
@@ -146,7 +162,7 @@ function NotodoPage() {
     <S.Div>
       <S.Header>
         <div>
-          <button><S.CalImg src={iconCalendar} /></button>
+          <button onClick={() => navigate('/calender')}><S.CalImg src={iconCalendar} /></button>
           <S.Logo src={Logo} />
         </div>
         <WeekPicker />
@@ -157,7 +173,10 @@ function NotodoPage() {
             <S.NotodoLi key={i.id}>
               <S.ContentWrap>
                 {i.content === "" ? (
-                  <input type="text" value={inputValue} onChange={handleInputChange} onBlur={handleInputBlur} onKeyDown={handleInputKeyDown} ref={inputRef} />) :
+                  <>
+                    <input type="text" value={inputValue} autoFocus onChange={handleInputChange} onBlur={handleInputBlur} onKeyDown={handleInputKeyDown} ref={inputRef} />
+                  </>
+                ) :
                   <p>{i.content}</p>}
                 <p>금지</p>
               </S.ContentWrap>
@@ -176,7 +195,7 @@ function NotodoPage() {
         <S.AddBtn onClick={handleAddButtonClick}><img src={iconPlus} /></S.AddBtn>
       </S.Footer>
     </S.Div>
-  );
+  )
 }
 
 export default NotodoPage;

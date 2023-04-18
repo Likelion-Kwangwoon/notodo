@@ -74,7 +74,7 @@ export const ContentWrap = styled.div`
     border: none;
     outline: none;
     background: transparent;
-    width: 5px;
+    width: 0.1px;
     color: ${props => props.theme.text.gray3};
     font-size: 14px;
     padding: 0;
