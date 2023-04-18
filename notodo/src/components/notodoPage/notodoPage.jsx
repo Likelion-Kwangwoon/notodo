@@ -82,7 +82,6 @@ function NotodoPage() {
   const [notodoList, setNotodoList] = useState(data)
   const [inputValue, setInputValue] = useState("")
   const [isAdding, setIsAdding] = useState(false)
-
   const inputRef = useRef(null);
 
   useEffect(() => {
