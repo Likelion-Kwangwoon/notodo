@@ -1,20 +1,22 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-  width: 390px;
-  height: 844px;
   background: ${props => props.theme.bg.main};
   margin: 0 auto;
+  position: relative;
+  width: 100%;
+  height: 100vh;
 `
 
 export const Header = styled.div`
   box-sizing: border-box;
-  width: 390px;
-  height: 221px;
+  width: 100%;
+  height: 210px;
   background: ${props => props.theme.bg.white};
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  padding-top: 86px;
-  position: relative;
+  box-shadow: 0px 10px 10px -9px rgba(0, 0, 0, 0.1);
+  padding-top: 70px;
+  position : sticky;
+  top: 0;
 
   & > div:first-child > button {
     position: absolute;
@@ -42,11 +44,12 @@ export const Logo = styled.img`
 
 export const WeekPicker = styled.div`
   box-sizing: border-box;
-  width: 343px;
+  width: 100%;
   height: 67px;
   margin: 15px auto;
   display: flex;
   justify-content: space-between;
+  padding: 0 30px;
 `
 
 export const PickBtn = styled.button`
@@ -91,7 +94,7 @@ export const PickBtn = styled.button`
 
 export const NotodoWrap = styled.ul`
   padding: 20px;
-  width: 312px;
+  background: ${props => props.theme.bg.main};
   margin: 0 auto;
 `
 
@@ -112,7 +115,7 @@ export const NotodoLi = styled.li`
 `
 
 export const ContentWrap = styled.div`
-  width: 250px;
+  width: 100%;
   display: flex;
   align-items: center;
 
@@ -124,6 +127,7 @@ export const ContentWrap = styled.div`
     color: ${props => props.theme.text.gray3};
     font-size: 14px;
     padding: 0;
+    font-family: 'Pretendard';
   }
 
   & > p {
@@ -138,21 +142,26 @@ export const ContentWrap = styled.div`
 `
 
 export const Footer = styled.div`
-  box-sizing: border-box;
-  width: 390px;
-  padding: 0 0 32px 0;
+  width: 100%;
+  height: 111px;
   background: ${props => props.theme.bg.white};
-  position: fixed;
-  bottom: 0;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 13px;
   color: ${props => props.theme.text.gray1};
+  box-sizing: border-box;
+  padding: 0 10px 0 30px;
+  position : fixed;
+  bottom : 0;
+
+  @media (min-width: 500px) {
+    max-width: 500px;
+    margin: 0 auto;
+  }
 
   & > div:first-child {
-    width: 77px;
-    margin: 0 auto;
     & > span:first-child {
       font-weight: 600;
       margin-right: 5px;
@@ -160,8 +169,6 @@ export const Footer = styled.div`
   }
 
   & > div:nth-child(2) {
-    width: 100px;
-    margin: 0 auto;
     & > span:first-child {
       font-weight: 600;
       color: ${props => props.theme.action.green};
@@ -170,8 +177,6 @@ export const Footer = styled.div`
   }
 
   & > div:nth-child(3) {
-    width: 100px;
-    margin: 0 auto;
     & > span:first-child {
       font-weight: 600;
       color: ${props => props.theme.action.red};
@@ -179,14 +184,13 @@ export const Footer = styled.div`
     }
   }
 
-
-  & > div > span:nth-child(3) {
-    
-  }
-
   & > div > span:nth-child(5) {
     color: ${props => props.theme.action.red};
   }
+`
+
+export const Sum = styled.div`
+  width: 100%;
 `
 
 export const AddBtn = styled.button`

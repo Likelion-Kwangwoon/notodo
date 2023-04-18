@@ -9,6 +9,7 @@ import iconPlus from '../../assets/icon-plus.svg';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useRef } from 'react';
+import { useCallback } from 'react';
 
 function NotodoPage() {
   // 임시 데이터 ^0^
@@ -90,12 +91,23 @@ function NotodoPage() {
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value)
-    inputRef.current.style.width = `${event.target.value.length * 14}px`
   }
+
+  const getInputWidth = useCallback(() => {
+    if (!inputRef.current) {
+      return;
+    }
+    const inputValue = inputRef.current.value || '';
+    const inputWidth = inputValue.length * 12;
+    inputRef.current.style.width = `${inputWidth}px`;
+  }, []);
+
+  useEffect(() => {
+    getInputWidth();
+  }, [getInputWidth, inputValue]);
 
   const handleInputBlur = () => {
     if (inputValue.trim() !== "") {
-      console.log(inputValue)
       const data = [{
         id: Date.now(),
         content: inputValue,
@@ -106,7 +118,6 @@ function NotodoPage() {
       }, ...notodoList.slice(1,)
       ]
       setNotodoList(data)
-      console.log(data)
       setInputValue("")
       setIsAdding(false)
     }
