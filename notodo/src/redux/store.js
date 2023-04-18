@@ -9,6 +9,7 @@ import {
   PURGE,
   REGISTER
 } from "redux-persist";
+import dateReducer from "./slice/dateSlice";
 
 export const logIn = createAction("LOGIN");
 export const logOut = createAction("LOGOUT");
@@ -30,7 +31,8 @@ const reducer = createReducer(initialState, (builder) => {
 })
 
 const rootReducer = combineReducers({
-  reducer
+  reducer,
+  date : dateReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

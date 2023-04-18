@@ -43,57 +43,6 @@ export const Logo = styled.img`
   margin: auto;
 `
 
-export const WeekPicker = styled.div`
-  box-sizing: border-box;
-  width: 100%;
-  height: 67px;
-  margin: 15px auto;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 30px;
-`;
-
-export const PickBtn = styled.button`
-  font-family: "Gamja Flower", cursive;
-  box-sizing: border-box;
-  width: 49px;
-  height: 67px;
-  position: relative;
-  box-sizing: border-box;
-
-  & p:first-child {
-    font-size: 14px;
-    line-height: 18px;
-    color: ${(props) => props.theme.text.gray3};
-  }
-
-  & p:nth-child(2) {
-    height: 27px;
-    font-size: 18px;
-    line-height: 22px;
-    color: ${(props) => props.theme.text.gray1};
-    margin-top: 8px;
-    z-index: 10;
-  }
-
-  & div {
-    margin: 5px auto 0 auto;
-    width: 28px;
-    height: 28px;
-    background: ${(props) => props.theme.action.yellow};
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    & p:first-child {
-      color: ${(props) => props.theme.text.black};
-      font-size: 18px;
-      line-height: 22px;
-    }
-  }
-`;
-
 export const NotodoWrap = styled.ul`
   padding: 20px;
   background: ${props => props.theme.bg.main};

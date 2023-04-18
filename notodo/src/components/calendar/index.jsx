@@ -8,6 +8,8 @@ import iconLeftArrow from "../../assets/icon-leftArrow.svg"
 import iconRightArrow from "../../assets/icon-rightArrow.svg"
 import charRed from "../../assets/char-red.svg"
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setDate } from "../../redux/slice/dateSlice";
 
 dayjs.extend(objectPlugin);
 dayjs.extend(weekdayPlugin);
@@ -17,14 +19,14 @@ export default function Calendar() {
   const [currentMonth, setCurrentMonth] = useState(dayjs());
   const [arrayOfDays, setArrayOfDays] = useState([]);
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const calcPercentage = e => {
     // 아이콘 출력을 위한 % 계산 함수
   }
 
   const handleGetDay = (date) => {
-    // console.log(date)
-    navigate('/notodo')    
+    dispatch(setDate(`${date.year}-${date.month + 1}-${date.day}`))&& navigate('/notodo')    
   }
 
   const nextMonth = () =>{

@@ -6,6 +6,7 @@ import iconUpActived from '../../assets/icon-up-green.svg';
 import iconDownDisabled from '../../assets/icon-down-gray.svg';
 import iconDownActived from '../../assets/icon-down-red.svg';
 import iconPlus from '../../assets/icon-plus.svg';
+import WeekPicker from "../WeekPicker"
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useRef } from 'react';
@@ -14,36 +15,6 @@ import { useNavigate } from 'react-router-dom';
 
 function NotodoPage() {
   // 임시 데이터 ^0^
-  const date = [
-    {
-      weekday: "일",
-      day: "11"
-    },
-    {
-      weekday: "월",
-      day: "12"
-    },
-    {
-      weekday: "화",
-      day: "13"
-    },
-    {
-      weekday: "수",
-      day: "14"
-    },
-    {
-      weekday: "목",
-      day: "15"
-    },
-    {
-      weekday: "금",
-      day: "16"
-    },
-    {
-      weekday: "토",
-      day: "17"
-    },
-  ]
 
   const data = [
     {
@@ -84,7 +55,6 @@ function NotodoPage() {
   const [inputValue, setInputValue] = useState("")
   const [isAdding, setIsAdding] = useState(false)
   const navigate = useNavigate()
-
   const inputRef = useRef(null)
 
   useEffect(() => {
@@ -195,18 +165,7 @@ function NotodoPage() {
           <button onClick={() => navigate('/calender')}><S.CalImg src={iconCalendar} /></button>
           <S.Logo src={Logo} />
         </div>
-        <S.WeekPicker>
-          {
-            date.map(i => (
-              <S.PickBtn key={i.weekday}>
-                <p>{i.weekday}</p>
-                {
-                  i.weekday === "수" ? <div><p>{i.day}</p></div> : <p>{i.day}</p>
-                }
-              </S.PickBtn>
-            ))
-          }
-        </S.WeekPicker>
+        <WeekPicker />
       </S.Header>
       <S.NotodoWrap>
         {
