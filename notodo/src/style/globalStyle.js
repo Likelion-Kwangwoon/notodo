@@ -16,6 +16,11 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 500px;
     font-family: 'Pretendard';
     margin: 0 auto;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+    &::-webkit-scrollbar{
+      display: none;
+    }
   }
 
   button {

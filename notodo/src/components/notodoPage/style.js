@@ -5,6 +5,7 @@ export const Div = styled.div`
   margin: 0 auto;
   position: relative;
   width: 100%;
+  min-width: 350px;
   height: 100vh;
 `
 
@@ -12,10 +13,10 @@ export const Header = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 210px;
-  background: ${props => props.theme.bg.white};
+  background: ${(props) => props.theme.bg.white};
   box-shadow: 0px 10px 10px -9px rgba(0, 0, 0, 0.1);
   padding-top: 70px;
-  position : sticky;
+  position: sticky;
   top: 0;
 
   & > div:first-child > button {
@@ -29,7 +30,7 @@ export const Header = styled.div`
     align-items: center;
     position: relative;
   }
-`
+`;
 
 export const CalImg = styled.img`
   width: 28px;
@@ -50,9 +51,10 @@ export const WeekPicker = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 30px;
-`
+`;
 
 export const PickBtn = styled.button`
+  font-family: "Gamja Flower", cursive;
   box-sizing: border-box;
   width: 49px;
   height: 67px;
@@ -62,14 +64,14 @@ export const PickBtn = styled.button`
   & p:first-child {
     font-size: 14px;
     line-height: 18px;
-    color: ${props => props.theme.text.gray3};
+    color: ${(props) => props.theme.text.gray3};
   }
 
   & p:nth-child(2) {
     height: 27px;
     font-size: 18px;
     line-height: 22px;
-    color: ${props => props.theme.text.gray1};
+    color: ${(props) => props.theme.text.gray1};
     margin-top: 8px;
     z-index: 10;
   }
@@ -78,19 +80,19 @@ export const PickBtn = styled.button`
     margin: 5px auto 0 auto;
     width: 28px;
     height: 28px;
-    background: ${props => props.theme.action.yellow};
+    background: ${(props) => props.theme.action.yellow};
     border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 
     & p:first-child {
-      color: ${props => props.theme.text.black};
+      color: ${(props) => props.theme.text.black};
       font-size: 18px;
       line-height: 22px;
     }
   }
-`
+`;
 
 export const NotodoWrap = styled.ul`
   padding: 20px;
@@ -144,56 +146,51 @@ export const ContentWrap = styled.div`
 export const Footer = styled.div`
   width: 100%;
   height: 111px;
-  background: ${props => props.theme.bg.white};
+  background: ${(props) => props.theme.bg.white};
+  padding: 10px 20px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
-  line-height: 13px;
-  color: ${props => props.theme.text.gray1};
   box-sizing: border-box;
-  padding: 0 10px 0 30px;
-  position : fixed;
-  bottom : 0;
+  position: fixed;
+  bottom: 0;
+  max-width: 500px;
+  box-shadow: 0px -1px 8px rgba(0, 0, 0, 0.05);
+`;
 
-  @media (min-width: 500px) {
-    max-width: 500px;
-    margin: 0 auto;
+export const ResultWrap = styled.div`
+  font-family: "Gamja Flower", cursive;
+  font-size: 15px;
+  color: ${(props) => props.theme.text.gray1};
+  display: flex;
+  gap: 17px;
+
+  & :nth-child(1)::after {
+    content: "TASKS";
+    margin-left: 5px;
   }
 
-  & > div:first-child {
-    & > span:first-child {
-      font-weight: 600;
-      margin-right: 5px;
+  & :nth-child(2) {
+    color: ${(props) => props.theme.action.green};
+    &::after {
+      color: ${(props) => props.theme.text.gray1};
+      content: "SUCCESSFUL";
+      margin-left: 5px;
     }
   }
 
-  & > div:nth-child(2) {
-    & > span:first-child {
-      font-weight: 600;
-      color: ${props => props.theme.action.green};
-      margin-right: 5px;
+  & :nth-child(3) {
+    color: ${(props) => props.theme.action.red};
+    &::after {
+      color: ${(props) => props.theme.text.gray1};
+      content: "FAILED";
+      margin-left: 5px;
     }
   }
-
-  & > div:nth-child(3) {
-    & > span:first-child {
-      font-weight: 600;
-      color: ${props => props.theme.action.red};
-      margin-right: 5px;
-    }
-  }
-
-  & > div > span:nth-child(5) {
-    color: ${props => props.theme.action.red};
-  }
-`
-
-export const Sum = styled.div`
-  width: 100%;
-`
+`;
 
 export const AddBtn = styled.button`
-  width: 80px;
-  height: 77px;
+  width: 100px;
+  text-align: right;
+  height: 100%;
 `
