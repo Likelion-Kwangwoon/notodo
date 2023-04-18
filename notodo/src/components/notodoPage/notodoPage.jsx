@@ -209,15 +209,11 @@ function NotodoPage() {
         }
       </S.NotodoWrap>
       <S.Footer>
-        <div>
-          <span>{notodoList.length}</span><span>TASKS</span>
-        </div>
-        <div>
-          <span>{notodoList.filter(i => i.status.successed).length}</span><span>SUCCESSFUL</span>
-        </div>
-        <div>
-          <span>{notodoList.filter(i => i.status.failed).length}</span><span>FAILED</span>
-        </div>
+        <S.ResultWrap>
+          <span>{notodoList.length}</span>
+          <span>{notodoList.filter(i => i.status.successed).length}</span>
+          <span>{notodoList.filter(i => i.status.failed).length}</span>
+        </S.ResultWrap>
         <S.AddBtn onClick={handleAddButtonClick}><img src={iconPlus} /></S.AddBtn>
       </S.Footer>
     </S.Div>
