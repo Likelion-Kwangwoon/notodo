@@ -9,7 +9,6 @@ function KakaoLogin() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  console.log(window.location.href);
   let token = new URL(window.location.href).searchParams.get("token");
 
   useEffect( () => {

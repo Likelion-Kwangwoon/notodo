@@ -5,4 +5,5 @@ export const Wrap = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 60px 20px 40px;
-`
+  min-width: 350px;
+`;
