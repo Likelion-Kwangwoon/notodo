@@ -1,6 +1,5 @@
 // kakao Login
 
-const CLIENT_ID = process.env.REACT_APP_KAKAO_ID;
-const REDIRECT_URI = "http://localhost:3000/user/kakao/callback";
+const REDIRECT_URI = "http://localhost:3000/redirect";
 
-export const KAKAO_AUTH_URL =  `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+export const KAKAO_AUTH_URL =  `https://notodo.shop/oauth2/authorization/kakao?redirect_uri=${REDIRECT_URI}`;

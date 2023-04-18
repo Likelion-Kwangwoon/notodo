@@ -10,7 +10,7 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<LoginPage />} />
-        <Route path='/kakaologin' element={<KakaoLogin />} />
+        <Route path='/redirect' element={<KakaoLogin />} />
         <Route path='/calender' element={<CalenderPage />} />
         <Route path='/notodo' element={<NotodoPage />} />
       </Routes>
