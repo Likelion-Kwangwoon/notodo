@@ -5,13 +5,14 @@ const baseURL = process.env.REACT_APP_URL;
 const instanceUtil = axios.create({
   baseURL,
   headers: {
+    Authorization: JSON.parse(JSON.parse(sessionStorage.getItem("persist:root")).reducer).token,
     "Content-type": "application/json",
   },
 });
 
 export const getContent = async (date) => {
   try {
-    const response = await instanceUtil.get(`/notodo/view?date=${date}}`);
+    const response = await instanceUtil.get(`/notodo/view?date=${date}`);
 
     return response.data;
   } catch (error) {
