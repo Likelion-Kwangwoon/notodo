@@ -12,50 +12,27 @@ import { useEffect } from 'react';
 import { useRef } from 'react';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { postList, getContent } from "../../api/api.js";
 
 function NotodoPage() {
-  // 임시 데이터 ^0^
-
-  const data = [
-    {
-      id: 1,
-      content: "노래부르기",
-      status: {
-        successed: false,
-        failed: false
-      },
-    },
-    {
-      id: 2,
-      content: "노래부르기",
-      status: {
-        successed: true,
-        failed: false
-      },
-    },
-    {
-      id: 3,
-      content: "노래부르기",
-      status: {
-        successed: true,
-        failed: false
-      },
-    },
-    {
-      id: 4,
-      content: "말하기",
-      status: {
-        successed: false,
-        failed: true
-      },
-    },
-  ]
-
-  const [notodoList, setNotodoList] = useState(data)
+  const date = useSelector(state => state.date.date)
+  const [notodoList, setNotodoList] = useState([])
   const [inputValue, setInputValue] = useState("")
   const [isAdding, setIsAdding] = useState(false)
   const navigate = useNavigate()
   const inputRef = useRef(null)
+
+  const fetchData = async () => {
+    console.log(date)
+    const data = await getContent(date)
+    console.log(data)
+    setNotodoList(data)
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [date])
 
   useEffect(() => {
     inputRef.current?.focus()
@@ -92,20 +69,21 @@ function NotodoPage() {
     return width * 0.87
   }
 
-  const handleInputBlur = () => {
+  const handleInputBlur = async () => {
     if (inputValue.trim() !== "") {
-      const data = [{
-        id: Date.now(),
+      const newItem = {
         content: inputValue,
-        status: {
-          successed: false,
-          failed: false,
-        }
-      }, ...notodoList.slice(1,)
-      ]
-      setNotodoList(data)
-      setInputValue("")
-      setIsAdding(false)
+        added: date
+      }
+
+      try {
+        await postList(newItem)
+        setNotodoList(await getContent(date))
+        setInputValue("")
+        setIsAdding(false)
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 
@@ -120,36 +98,33 @@ function NotodoPage() {
     if (!isAdding) {
       setIsAdding(true)
       const newItem = {
-        id: Date.now(),
+        notodoId: Date.now(),
         content: inputValue,
-        status: {
-          successed: false,
-          failed: false,
-        },
+        status: 0
       }
-      setNotodoList([newItem, ...notodoList])
+      setNotodoList([...notodoList, newItem])
       inputRef?.current?.focus()
     }
   }
 
   const handleItemClick = (id, type) => {
     const newData = notodoList.map(item => {
-      if (item.id === id && !isAdding) {
+      if (item.notodoId === id && !isAdding) {
         if (type === "successed") {
-          return {
+          return item.status === 1 ? {
             ...item,
-            status: {
-              successed: !item.status.successed,
-              failed: false,
-            },
+            status: 0
+          } : {
+            ...item,
+            status: 1
           }
         } else {
-          return {
+          return item.status === 2 ? {
             ...item,
-            status: {
-              successed: false,
-              failed: !item.status.failed,
-            },
+            status: 0
+          } : {
+            ...item,
+            status: 2
           }
         }
       }
@@ -169,28 +144,29 @@ function NotodoPage() {
       </S.Header>
       <S.NotodoWrap>
         {
-          notodoList.map(i => (
-            <S.NotodoLi key={i.id}>
-              <S.ContentWrap>
-                {i.content === "" ? (
-                  <>
-                    <input type="text" value={inputValue} autoFocus onChange={handleInputChange} onBlur={handleInputBlur} onKeyDown={handleInputKeyDown} ref={inputRef} />
-                  </>
-                ) :
-                  <p>{i.content}</p>}
-                <p>금지</p>
-              </S.ContentWrap>
-              <button onClick={() => handleItemClick(i.id, "successed")} ><img src={i.status.successed ? iconUpActived : iconUpDisabled} /></button>
-              <button onClick={() => handleItemClick(i.id, "failed")}><img src={i.status.failed ? iconDownActived : iconDownDisabled} /></button>
-            </S.NotodoLi>
-          ))
+          notodoList.length ?
+            [...notodoList].reverse().map(i => (
+              <S.NotodoLi key={i.notodoId}>
+                <S.ContentWrap>
+                  {i.content === "" ? (
+                    <>
+                      <input type="text" value={inputValue} autoFocus onChange={handleInputChange} onBlur={handleInputBlur} onKeyDown={handleInputKeyDown} ref={inputRef} />
+                    </>
+                  ) :
+                    <p>{i.content}</p>}
+                  <p>금지</p>
+                </S.ContentWrap>
+                <button onClick={() => handleItemClick(i.notodoId, "successed")} ><img src={i.status === 1 ? iconUpActived : iconUpDisabled} /></button>
+                <button onClick={() => handleItemClick(i.notodoId, "failed")}><img src={i.status === 2 ? iconDownActived : iconDownDisabled} /></button>
+              </S.NotodoLi>
+            )) : <S.Empty>새로운 낫투두리스트를 추가해 보세요!</S.Empty>
         }
       </S.NotodoWrap>
       <S.Footer>
         <S.ResultWrap>
           <span>{notodoList.length}</span>
-          <span>{notodoList.filter(i => i.status.successed).length}</span>
-          <span>{notodoList.filter(i => i.status.failed).length}</span>
+          <span>{notodoList.filter(i => i.status === 1).length}</span>
+          <span>{notodoList.filter(i => i.status === 2).length}</span>
         </S.ResultWrap>
         <S.AddBtn onClick={handleAddButtonClick}><img src={iconPlus} /></S.AddBtn>
       </S.Footer>

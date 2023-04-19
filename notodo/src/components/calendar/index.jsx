@@ -1,4 +1,4 @@
-import * as S from "./style"  
+import * as S from "./style"
 import { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import weekdayPlugin from "dayjs/plugin/weekday";
@@ -26,10 +26,10 @@ export default function Calendar() {
   }
 
   const handleGetDay = (date) => {
-    dispatch(setDate(`${date.year}-${date.month + 1}-${date.day}`))&& navigate('/notodo')    
+    dispatch(setDate(`${date.year}-${(date.month + 1).toString().padStart(2, '0')}-${(date.day).toString().padStart(2, '0')}`)) && navigate('/notodo')
   }
 
-  const nextMonth = () =>{
+  const nextMonth = () => {
     const plus = currentMonth.add(1, "month");
     setCurrentMonth(plus);
   };
@@ -37,9 +37,9 @@ export default function Calendar() {
   const prevMonth = () => {
     const minus = currentMonth.subtract(1, "month");
     setCurrentMonth(minus);
-  }; 
+  };
 
-  const renderHeader = () =>{
+  const renderHeader = () => {
     return (
       <S.Header>
         <button onClick={() => prevMonth()}>
@@ -53,13 +53,13 @@ export default function Calendar() {
     );
   };
 
-  const renderDays = () => { 
+  const renderDays = () => {
     const days = ["일", "월", "화", "수", "목", "금", "토"];
     return <S.DayWrap>{days.map(i => <span key={i}>{i}</span>)}</S.DayWrap>
   };
 
   const formateDateObject = date => {
-    const clonedObject = {...date.toObject()};
+    const clonedObject = { ...date.toObject() };
     const formatedObject = {
       day: clonedObject.date,
       month: clonedObject.months,
@@ -68,7 +68,7 @@ export default function Calendar() {
     };
     return formatedObject;
   };
-  
+
   const getAllDays = () => {
     let currentDate = currentMonth.startOf("month").weekday(0);
     const nextMonth = currentMonth.add(1, "month").month();
@@ -96,11 +96,11 @@ export default function Calendar() {
       week.dates.forEach((d, i) => {
         days.push(
           <S.CellWrap onClick={() => handleGetDay(d)}
-              className={!d.isCurrentMonth ? "disabled" : ""} key={i}>
+            className={!d.isCurrentMonth ? "disabled" : ""} key={i}>
             <span> {d.day} </span>
-            { d.isCurrentMonth && <img src={charRed} alt="" /> }
+            {d.isCurrentMonth && <img src={charRed} alt="" />}
           </S.CellWrap>
-          );
+        );
       });
       rows.push(
         <S.RowWrap key={index}>

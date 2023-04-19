@@ -143,3 +143,8 @@ export const AddBtn = styled.button`
   text-align: right;
   height: 100%;
 `
+
+export const Empty = styled.div`
+  margin-top: 20%;
+  color: ${(props) => props.theme.text.gray3};
+`
