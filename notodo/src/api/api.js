@@ -5,10 +5,23 @@ const baseURL = process.env.REACT_APP_URL;
 const instanceUtil = axios.create({
   baseURL,
   headers: {
-    Authorization: JSON.parse(JSON.parse(sessionStorage.getItem("persist:root")).reducer).token,
     "Content-type": "application/json",
   },
 });
+
+instanceUtil.interceptors.request.use(
+  (config) => {
+    const res = JSON.parse(sessionStorage.getItem("persist:root"))
+    if (JSON.parse(res.reducer).token) {
+      const userToken = JSON.parse(res.reducer).token;
+      config.headers.Authorization = userToken;
+      return config;
+    } else window.location.replace("/");
+  },
+  (error) => {
+    console.error(error);
+  }
+);
 
 export const getContent = async (date) => {
   try {
