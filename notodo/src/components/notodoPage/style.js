@@ -44,9 +44,16 @@ export const Logo = styled.img`
 `
 
 export const NotodoWrap = styled.ul`
+  height: calc(100vh - 210px - 111px);
+  box-sizing: border-box;
+  overflow-y: scroll;
   padding: 20px;
   background: ${props => props.theme.bg.main};
   margin: 0 auto;
+  
+  ::-webkit-scrollbar {
+  display: none;
+}
 `
 
 export const NotodoLi = styled.li`
