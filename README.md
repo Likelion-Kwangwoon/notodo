@@ -6,6 +6,7 @@
 
 ## 🙂 Collaborator
 <p>
+<div align="center">
 <a href="https://github.com/hyoribogo">
   <img src="https://github.com/hyoribogo.png" width="100">
 </a>
@@ -18,7 +19,7 @@
 <a href="https://github.com/chs98412">
   <img src="https://velog.velcdn.com/images/chs98412/post/27a0d7f3-6f97-42d3-91e9-453efdd039a7/image.jpeg" width="100">
 </a>
-
+</div>
 </p>
 
 
