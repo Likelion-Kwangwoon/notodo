@@ -1,4 +1,8 @@
 # notodo
+<div align="center">
+<img src="https://velog.velcdn.com/images/chs98412/post/990c88de-b5d0-48ef-ac5d-ab4888c6951c/image.png" width="500">
+</div>
+
 
 ## 🙂 Collaborator
 <p>
@@ -9,14 +13,13 @@
   <img src="https://github.com/offbeat24.png" width="100">
 </a>
 <a href="https://github.com/ekdms5566">
-  <img src="https://github.com/ekdms5566.png" width="100">
+  <img src="https://velog.velcdn.com/images/chs98412/post/07274634-3c91-4dcd-aab0-b17a037f8fd1/image.jpeg" width="100">
 </a>
 <a href="https://github.com/chs98412">
-  <img src="https://github.com/chs98412.png" width="100">
+  <img src="https://velog.velcdn.com/images/chs98412/post/27a0d7f3-6f97-42d3-91e9-453efdd039a7/image.jpeg" width="100">
 </a>
 
 </p>
-
 
 
 # 🔥 Git 규칙 
