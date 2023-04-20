@@ -64,7 +64,7 @@ function NotodoPage() {
     setInputValue(event.target.value)
   }
 
-  // 리스트 입력 후 다른 창 눌렀을 때 등록되게 하는 함수
+  // 리스트 입력 후 다른 창 눌렀을 때 등록 or 수정되게 하는 함수
   const handleInputBlur = async () => {
     if (inputValue.trim() !== "") {
       try {
@@ -95,7 +95,7 @@ function NotodoPage() {
     }
   }
 
-  // 리스트 입력 후 엔터키 눌렀을 때 등록되게 하는 함수
+  // 리스트 입력 후 엔터키 눌렀을 때 등록 or 수정되게 하는 함수
   const handleInputKeyDown = event => {
     if (event.key === "Enter") {
       event.preventDefault()
@@ -104,8 +104,9 @@ function NotodoPage() {
     }
   }
 
-  // 인풋 뜨게 하는 함수
+  // 추가 버튼 클릭시 빈 input 띄우는 함수
   const handleAddButtonClick = () => {
+    setIsEditing({})
     if (!isAdding) {
       setIsAdding(true)
       const newItem = {
@@ -114,12 +115,14 @@ function NotodoPage() {
         status: 0
       }
       setNotodoList([...notodoList, newItem])
+      setInputValue("")
       inputRef?.current?.focus()
     }
   }
 
   // 성공, 실패 버튼
   const handleItemClick = (id, type) => {
+    setIsEditing({})
     const newData = notodoList.map(item => {
       if (item.notodoId === id && !isAdding) {
         if (type === "successed") {
@@ -148,10 +151,10 @@ function NotodoPage() {
   }
 
   // 리스트 누르고 있을 시
-  const handleMouseDown = (e, id) => {
-    setPopupId(id)
+  const handleMouseDown = (id) => {
     timeoutRef.current = setTimeout(() => {
       setShowPopup(true)
+      setPopupId(id)
     }, 500)
   }
 
@@ -220,7 +223,7 @@ function NotodoPage() {
         {
           notodoList.length ?
             [...notodoList].reverse().map(i => (
-              <S.NotodoLi disabled={isEditing[i.notodoId]} key={i.notodoId} onMouseDown={(e) => { if (!isEditing[i.notodoId]) handleMouseDown(e, i.notodoId) }} onMouseUp={handleMouseUp}>
+              <S.NotodoLi disabled={isEditing[i.notodoId]} key={i.notodoId} onMouseDown={(e) => { if (!isEditing[i.notodoId]) handleMouseDown(i.notodoId) }} onMouseUp={handleMouseUp}>
                 <S.ContentWrap>
                   {i.content === "" || isEditing[i.notodoId] === true ? (
                     <>
