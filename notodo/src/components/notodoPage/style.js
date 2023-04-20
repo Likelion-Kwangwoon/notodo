@@ -14,7 +14,7 @@ export const Header = styled.div`
   width: 100%;
   height: 210px;
   background: ${(props) => props.theme.bg.white};
-  box-shadow: 0px 10px 10px -9px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.1);
   padding-top: 70px;
   position: sticky;
   top: 0;
@@ -70,6 +70,11 @@ export const NotodoLi = styled.li`
   & > button:last-child {
     margin-right: 8px;
   }
+
+  &:active {
+  background: ${props => props.theme.action.lgYellow};
+  border-radius: 5px;
+}
 `
 
 export const ContentWrap = styled.div`
@@ -111,7 +116,7 @@ export const Footer = styled.div`
   position: fixed;
   bottom: 0;
   max-width: 500px;
-  box-shadow: 0px -1px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px -10px 10px -10px rgba(0, 0, 0, 0.1);
 `;
 
 export const ResultWrap = styled.div`
