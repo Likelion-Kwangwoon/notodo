@@ -1,36 +1,126 @@
-# notodo
+<br><br>
+
 <div align="center">
-<img src="https://velog.velcdn.com/images/chs98412/post/990c88de-b5d0-48ef-ac5d-ab4888c6951c/image.png" width="500">
+<img src="notodo\src\assets\logo.svg" width="300">
 </div>
 
+<br><br>
+
+# notodo
+> 하면 안되는 리스트를 적는 낫투두리스트 서비스
+
+<br>
 
 ## 🧑🏻‍💻 Collaborator
 <div align="center">
 
 |팀장|팀원|팀원|팀원|
 |:---:|:---:|:---:|:---:|
-|<a href="https://github.com/hyoribogo"><img src="https://velog.velcdn.com/images/chs98412/post/c7e754f8-f2b0-43a0-a361-33cc4dca8f8f/image.jpeg" width="150"></a>|<a href="https://github.com/ekdms5566"><img src="https://velog.velcdn.com/images/chs98412/post/07274634-3c91-4dcd-aab0-b17a037f8fd1/image.jpeg" width="150"></a>|<a href="https://github.com/offbeat24"><img src="https://velog.velcdn.com/images/chs98412/post/8ad1fc12-b7e6-4d3f-b08d-89502636935a/image.jpeg" width="150"></a>|<a href="https://github.com/chs98412"><img src="https://velog.velcdn.com/images/chs98412/post/27a0d7f3-6f97-42d3-91e9-453efdd039a7/image.jpeg" width="150">|
-[김효리](https://github.com/hyoribogo)|[박다은](https://github.com/ekdms5566)|[박시현](https://github.com/offbeat24)|[최혁순](https://github.com/chs98412)
+|<a href="https://github.com/chs98412"><img src="https://velog.velcdn.com/images/chs98412/post/27a0d7f3-6f97-42d3-91e9-453efdd039a7/image.jpeg" width="150">|<a href="https://github.com/ekdms5566"><img src="https://velog.velcdn.com/images/chs98412/post/07274634-3c91-4dcd-aab0-b17a037f8fd1/image.jpeg" width="150"></a>|<a href="https://github.com/offbeat24"><img src="https://velog.velcdn.com/images/chs98412/post/8ad1fc12-b7e6-4d3f-b08d-89502636935a/image.jpeg" width="150"></a>|<a href="https://github.com/hyoribogo"><img src="https://velog.velcdn.com/images/chs98412/post/c7e754f8-f2b0-43a0-a361-33cc4dca8f8f/image.jpeg" width="150"></a>|
+[최혁순(BE)](https://github.com/chs98412)|[박다은(FE)](https://github.com/ekdms5566)|[박시현(FE)](https://github.com/offbeat24)|[김효리(FE)](https://github.com/hyoribogo)
 
 </div>
 
+<br>
 
+## 페이지 소개
+
+### 로그인
+
+### 캘린더
+
+### 리스트
+
+
+<br>
+
+## 협업 툴
+[👨‍👨‍👧‍👧 노션](https://kw-likelion11.notion.site/2-1a62a554ac054d1bbad2279d21bc973f)
+
+[🎨 피그마](https://www.figma.com/file/TU1FRGXFEjJ21oqb4RGYos/%EB%82%AB%ED%88%AC%EB%91%90%EB%A6%AC%EC%8A%A4%ED%8A%B8?node-id=30%3A286&t=k5fM9c0BLbw4TBDg-1)
+
+[📍 기능 명세](https://kw-likelion11.notion.site/6b800b7a3f4b4c8689e4b7526c000e05)
+
+[🖥 API 명세](https://www.notion.so/kw-likelion11/API-3f64f2edf62f4957877344cbc17aaa49?pvs=4)
+
+<br>
+
+## 기술 스택
+<table>
+<tr>
+ <td align="center">언어</td>
+ <td>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"/>&nbsp
+ </td>
+</tr>
+<tr>
+ <td align="center">라이브러리</td>
+ <td>
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=ffffff"/>&nbsp
+  <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white"/>&nbsp
+  <img src="https://img.shields.io/badge/.ENV-ECD53F?style=for-the-badge&logo=.ENV&logoColor=white"/>&nbsp
+</tr>
+<tr>
+ <td align="center">스타일링</td>
+ <td>
+  <img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white"/> &nbsp 
+</tr>
+<tr>
+ <td align="center">상태관리</td>
+ <td>
+  <img src="https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=white"/>&nbsp
+ </td>
+</tr>
+<tr>
+</tr>
+<tr>
+ <td align="center">컴포넌트 관리</td>
+ <td>
+  <img src="https://img.shields.io/badge/Storybook-FF4785?style=for-the-badge&logo=Storybook&logoColor=white"/>&nbsp 
+ </td>
+</tr>
+<tr>
+ <td align="center">패키지 매니저</td>
+ <td>
+  <img src="https://img.shields.io/badge/yarn-%232C8EBB.svg?style=for-the-badge&logo=yarn&logoColor=white"/>&nbsp 
+ </td>
+</tr>
+<tr>
+ <td align="center">협업툴</td>
+ <td>
+    <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white"/>&nbsp
+    <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white"/>&nbsp 
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>&nbsp 
+    <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"/>&nbsp 
+ </td>
+</tr>
+<tr>
+ <td align="center">목 서버</td>
+ <td>
+  <img src="https://img.shields.io/badge/postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white"/> &nbsp 
+</tr>
+<tr>
+ <td align="center">배포</td>
+ <td>
+    <img src="https://img.shields.io/badge/googlecloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white"/>&nbsp
+     <img src="https://img.shields.io/badge/netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white"/>&nbsp
+
+</tr>
+<tr>
+ <td align="center">백엔드</td>
+ <td>
+    <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white"/>&nbsp
+  <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"/>&nbsp
+  <img src="https://img.shields.io/badge/springsecurity-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white"/>&nbsp 
+
+</tr>
+</table>
+
+<br>
 
 # 🔥 Git 규칙 
 <details>
-
-
-## ① 브랜치(branch) 이름 
-- 기능 개발  
-  git branch **feature**/기능요약  
-  `ex) git branch feature/login`   
-  `ex) git branch feature/ad_memberAll` 
  
-- 버그/오류 수정
-  git branch **hotfix**/기능요약  
-  `ex) git branch hotfix/mypage_myArticle`   
-  `ex) git branch hotfix/u_faqList`  
-
 ## ② 커밋(commit)
 - 하나의 커밋에는 한 단위의 작업 넣기  
   ◽ 한 작업을 여러 버전에 걸쳐 커밋 ❌  
@@ -67,38 +157,5 @@ footer
 |move| 코드나 파일의 이동|
 |rename| 이름 변경|
 |remove| 삭제|  
-### subject
-완전한 서술형 문장이 아니라, 간결하고 요점적인 서술로 작성한다.
-
-
-### body
-본문은 한 줄 당 72자 내로 작성한다.
-본문 내용은 양에 구애받지 않고 최대한 상세히 작성한다.
-본문 내용은 어떻게 변경했는지 보다 무엇을 변경했는지 또는 왜 변경했는지를 설명한다.
-
-### footer
-footer는 "유형: #이슈 번호" 형식으로 사용한다
-- Fixes: 이슈 수정중 (아직 해결되지 않은 경우)
-- Resolves: 이슈를 해결했을 때 사용
-- Ref: 참고할 이슈가 있을 때 사용
-- Related to: 해당 커밋에 관련된 이슈번호 (아직 해결되지 않은 경우)
-
-
-### 커밋 메세지 예시 
-
-
-``` 
-feat: "회원 가입 기능 구현"
-
-SMS, 이메일 중복확인 API 개발
-
-Resolves: #123
-
-Ref: #456
-
-Related to: #48, #45
-```  
-
-커밋 메세지의 줄을 띄우는 법은 그냥 따옴표를 닫지 않고 엔터를 눌러 줄 띄우고 쓰면 된다.
 
 </details>
