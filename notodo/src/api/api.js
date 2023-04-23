@@ -1,27 +1,17 @@
 import axios from "axios";
 
-const baseURL = process.env.REACT_APP_URL;
+const baseURL = "https://notodo.shop";
+
+
 
 const instanceUtil = axios.create({
   baseURL,
   headers: {
-    "Content-type": "application/json",
+    Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ0ZXN0IiwiaWF0IjoxNjgxODk4OTcwLCJleHAiOjE2ODE4OTk1NzAsInN1YiI6ImNoczk4NDEyQG5hdmVyLmNvbSIsIm5pY2tuYW1lIjoi7LWc7ZiB7IicIiwidWlkIjoiY2hzOTg0MTJAbmF2ZXIuY29tIiwicGxhdGZvcm0iOiJrYWthbyJ9.M1_r9V-CjLMi6jzWvgTtxuQpkJJAxz0pmF05-5ZiYlI`,
   },
 });
 
-instanceUtil.interceptors.request.use(
-  (config) => {
-    const res = JSON.parse(sessionStorage.getItem("persist:root"))
-    if (JSON.parse(res.reducer).token) {
-      const userToken = JSON.parse(res.reducer).token;
-      config.headers.Authorization = userToken;
-      return config;
-    } else window.location.replace("/");
-  },
-  (error) => {
-    console.error(error);
-  }
-);
+
 
 export const getContent = async (date) => {
   try {
