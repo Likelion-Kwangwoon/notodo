@@ -34,6 +34,18 @@ export const getContent = async (date) => {
   }
 };
 
+
+export const getAllContent = async (date) => {
+  try {
+    const response = await instanceUtil.get(`/notodo/viewall`);
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
 export const postList = async (data) => {
   try {
     const response = await instanceUtil.post(`/notodo/create`, data);
