@@ -1,11 +1,11 @@
-import React from 'react';
 import { useEffect } from 'react';
 import { KAKAO_AUTH_URL } from '../../SocialOAuth';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.svg'
 import { TitleLogo, KakaoButton } from './style';
-import kakaobtn from '../../assets/kakao_login_medium_narrow.png';
+import kakaoLogo from '../../assets/icon-kakao.svg'
+
 function LoginPage() {
 
   const navigate = useNavigate();
@@ -20,12 +20,13 @@ function LoginPage() {
     window.location.href = KAKAO_AUTH_URL;
   }
   return (
-    <div>
+    <>
       <TitleLogo src={logo} alt="" />
       <KakaoButton onClick={handleLogin}>
-        <img src={kakaobtn} alt=''/>
+        <img src={kakaoLogo} alt="" />
+        <p>카카오로 로그인하기</p>
       </KakaoButton>
-    </div>
+    </>
   );
 }
 
