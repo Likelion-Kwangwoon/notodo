@@ -10,6 +10,7 @@ import charRed from "../../assets/char-red.svg"
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setDate } from "../../redux/slice/dateSlice";
+import { getContent } from "../../api/api";
 
 dayjs.extend(objectPlugin);
 dayjs.extend(weekdayPlugin);
@@ -21,12 +22,16 @@ export default function Calendar() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const calcPercentage = e => {
-    // 아이콘 출력을 위한 % 계산 함수
+  const printPercentage = async () => {
+    const res = await getContent()
+
+    // return (
+    //   <img src={charRed} alt="" />
+    // )
   }
 
   const handleGetDay = (date) => {
-    dispatch(setDate(`${date.year}-${(date.month + 1).toString().padStart(2, '0')}-${(date.day).toString().padStart(2, '0')}`)) && navigate('/notodo')
+    dispatch(setDate(dayjs(`${date.year}-${(date.month + 1)}-${(date.day)}`).format('YYYY-MM-DD'))) && navigate('/notodo')
   }
 
   const nextMonth = () => {
@@ -98,7 +103,8 @@ export default function Calendar() {
           <S.CellWrap onClick={() => handleGetDay(d)}
             className={!d.isCurrentMonth ? "disabled" : ""} key={i}>
             <span> {d.day} </span>
-            {d.isCurrentMonth && <img src={charRed} alt="" />}
+            {/* {printPercentage()} */}
+            {/* {d.isCurrentMonth && <img src={charRed} alt="" />} */}
           </S.CellWrap>
         );
       });
