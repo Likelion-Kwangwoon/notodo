@@ -6,11 +6,12 @@ import objectPlugin from "dayjs/plugin/toObject";
 import weekOfYear from "dayjs/plugin/weekOfYear"
 import iconLeftArrow from "../../assets/icon-leftArrow.svg"
 import iconRightArrow from "../../assets/icon-rightArrow.svg"
-import charRed from "../../assets/char-red.svg"
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setDate } from "../../redux/slice/dateSlice";
 import { getContent } from "../../api/api";
+import { CharList } from "../../assets/CharList";
+import { failList, resetList, sucList, uncheckList } from "../../redux/slice/listSlice";
 
 dayjs.extend(objectPlugin);
 dayjs.extend(weekdayPlugin);
@@ -19,15 +20,47 @@ dayjs.extend(weekOfYear)
 export default function Calendar() {
   const [currentMonth, setCurrentMonth] = useState(dayjs());
   const [arrayOfDays, setArrayOfDays] = useState([]);
+  const [stateArr, setStateArr] = useState([])
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const printPercentage = async () => {
-    const res = await getContent()
+  const printPercentage = async (month) => {
+    const arr = []
+    for (let i = month.startOf('month').date(); i < month.endOf('month').date(); i++) {
+      const res = await getContent(dayjs(`${month.year()}-${month.month()+1}-${i}`).format('YYYY-MM-DD'));
+      let result;
+      if (res.length) {
+        for (let i = 0; i < res.length; i++) {
+          if (res[i].status === 2) {
+            result = 3
+            break;
+          } else if (res[i].status === 0) {
+            result = 1
+          } else result = 2
+        }
+    } 
+      else result = 0
 
-    // return (
-    //   <img src={charRed} alt="" />
-    // )
+      arr.push(result)
+    }
+
+    for (const i of arr) {
+       switch (i) {
+        case 3:
+          dispatch(failList())
+          break;
+        case 2:
+          dispatch(sucList())
+          break;
+        case 1:
+          dispatch(uncheckList())
+          break;
+        default:
+          break;
+      }
+    }
+    
+    setStateArr(arr);
   }
 
   const handleGetDay = (date) => {
@@ -103,8 +136,7 @@ export default function Calendar() {
           <S.CellWrap onClick={() => handleGetDay(d)}
             className={!d.isCurrentMonth ? "disabled" : ""} key={i}>
             <span> {d.day} </span>
-            {/* {printPercentage()} */}
-            {/* {d.isCurrentMonth && <img src={charRed} alt="" />} */}
+            {d.isCurrentMonth && <img src={CharList[stateArr[d.day-1]-1]} alt="" />}
           </S.CellWrap>
         );
       });
@@ -119,7 +151,9 @@ export default function Calendar() {
   };
 
   useEffect(() => {
+    dispatch(resetList())
     getAllDays();
+    printPercentage(currentMonth)
   }, [currentMonth]);
 
   return (

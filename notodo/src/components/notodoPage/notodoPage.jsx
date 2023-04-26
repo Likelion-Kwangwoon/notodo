@@ -214,7 +214,7 @@ function NotodoPage() {
     <S.Div ref={divRef}>
       <S.Header>
         <div>
-          <button onClick={() => navigate('/calender')}><S.CalImg src={iconCalendar} /></button>
+          <button onClick={() => navigate('/calendar')}><S.CalImg src={iconCalendar} /></button>
           <S.Logo src={Logo} />
         </div>
         <WeekPicker />

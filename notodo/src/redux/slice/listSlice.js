@@ -15,18 +15,24 @@ export const listSlice = createSlice({
       state.length = action.payload.length
     },
     sucList : (state, action) => {
-      state.list = action.payload.length;
+      state.suc += 1
     },
     failList : (state, action) => {
-      state.list = action.payload.length;
+      state.fail += 1;
     },
     uncheckList : (state, action) => {
-      state.list = action.payload.length;
+      state.uncheck += 1;
     },
+    resetList: (state) => {
+      state.suc = 0
+      state.fail = 0
+      state.uncheck = 0
+    }
   },
 });
 
-export const { setLength, sucList, failList, uncheckList } = listSlice.actions;
+export const { setLength, sucList, failList, uncheckList, resetList } =
+  listSlice.actions;
 
 
 export default listSlice.reducer;
