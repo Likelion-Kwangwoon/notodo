@@ -13,7 +13,7 @@ function LoginPage() {
 
   useEffect(() => {
     if ( token !== "" ) {
-      navigate('/calender');
+      navigate('/calendar');
     }
   },[navigate, token]);
   const handleLogin = () => {

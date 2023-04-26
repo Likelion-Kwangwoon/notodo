@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from './components/loginPage/loginPage';
-import CalenderPage from './components/calenderPage/calenderPage';
+import CalendarPage from './components/calendarPage/calendarPage';
 import NotodoPage from './components/notodoPage/notodoPage';
 import KakaoLogin from './components/loginPage/kakaoLogin';
 import React from 'react';
@@ -11,7 +11,7 @@ function Router() {
       <Routes>
         <Route path='/' element={<LoginPage />} />
         <Route path='/redirect' element={<KakaoLogin />} />
-        <Route path='/calender' element={<CalenderPage />} />
+        <Route path='/calendar' element={<CalendarPage />} />
         <Route path='/notodo' element={<NotodoPage />} />
       </Routes>
     </BrowserRouter>
