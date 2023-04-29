@@ -26,25 +26,33 @@ export default function Calendar() {
 
   const printPercentage = async (month) => {
     const arr = []
-    for (let i = month.startOf('month').date(); i < month.endOf('month').date(); i++) {
-      const res = await getContent(dayjs(`${month.year()}-${month.month()+1}-${i}`).format('YYYY-MM-DD'));
+    const resultArr = []
+
+    const startDay = month.startOf('month').date()
+    const endDay = month.endOf('month').date()
+    for (let i = startDay; i < endDay; i++) {
+      arr.push(getContent(dayjs(`${month.year()}-${month.month() + 1}-${i}`).format('YYYY-MM-DD')))
+    }
+
+    const res = await Promise.all(arr)
+  
+    for (const value of res) {
       let result;
-      if (res.length) {
-        for (let i = 0; i < res.length; i++) {
-          if (res[i].status === 2) {
+      if (value.length) {
+        for (let i = 0; i < value.length; i++) {
+          if (value[i].status === 2) {
             result = 3
             break;
-          } else if (res[i].status === 0) {
+          } else if (value[i].status === 0) {
             result = 1
           } else result = 2
         }
-    } 
+      } 
       else result = 0
-
-      arr.push(result)
+      resultArr.push(result)
     }
 
-    for (const i of arr) {
+    for (const i of resultArr) {
        switch (i) {
         case 3:
           dispatch(failList())
@@ -60,7 +68,7 @@ export default function Calendar() {
       }
     }
     
-    setStateArr(arr);
+    setStateArr(resultArr);
   }
 
   const handleGetDay = (date) => {
