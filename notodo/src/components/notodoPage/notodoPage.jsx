@@ -32,14 +32,11 @@ function NotodoPage() {
   const timeoutRef = useRef(null)
 
   const fetchData = async () => {
-    console.log(date)
     const data = await getContent(date)
-    console.log(data)
     setNotodoList(data)
   }
 
   useEffect(() => {
-    console.log(isEditing)
   }, [isEditing])
 
   useEffect(() => {
@@ -57,7 +54,6 @@ function NotodoPage() {
 
   useEffect(() => {
     getInputWidth()
-    console.log(inputValue)
   }, [inputValue])
 
   const handleInputChange = event => {
@@ -73,19 +69,16 @@ function NotodoPage() {
             content: inputValue,
             added: date
           }
-          console.log("응 새로 추가할거야")
           await postList(newItem)
-          console.log(await getContent(date))
           setNotodoList(await getContent(date))
         }
         else {
-          await console.log(isEditing)
           const updatedItem = notodoList.map(i => {
             if (i.notodoId === popupId) i.content = inputValue
             return i
           })
           setNotodoList(updatedItem)
-          await setIsEditing({})
+          setIsEditing({})
         }
         setInputValue("")
         setIsAdding(false)
@@ -233,8 +226,8 @@ function NotodoPage() {
                     <p>{i.content}</p>}
                   <p>금지</p>
                 </S.ContentWrap>
-                <button onClick={() => handleItemClick(i.notodoId, "successed")} ><img src={i.status === 1 ? iconUpActived : iconUpDisabled} /></button>
-                <button onClick={() => handleItemClick(i.notodoId, "failed")}><img src={i.status === 2 ? iconDownActived : iconDownDisabled} /></button>
+                <button onClick={() => handleItemClick(i.notodoId, "successed")} ><img src={i.status === 1 ? iconUpActived : iconUpDisabled} alt="" /></button>
+                <button onClick={() => handleItemClick(i.notodoId, "failed")}><img src={i.status === 2 ? iconDownActived : iconDownDisabled} alt="" /></button>
               </S.NotodoLi>
             )) : <S.Empty>새로운 낫투두리스트를 추가해 보세요!</S.Empty>
         }
@@ -246,7 +239,7 @@ function NotodoPage() {
             <span>{notodoList.filter(i => i.status === 1).length}</span>
             <span>{notodoList.filter(i => i.status === 2).length}</span>
           </S.ResultWrap>
-          <S.AddBtn onClick={handleAddButtonClick}><img src={iconPlus} /></S.AddBtn>
+          <S.AddBtn onClick={handleAddButtonClick}><img src={iconPlus} alt=""/></S.AddBtn>
         </S.Footer>}
 
       {showPopup && (
