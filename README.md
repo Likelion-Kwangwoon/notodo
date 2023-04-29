@@ -7,17 +7,19 @@
 <br><br>
 
 # notodo
+
 > 하면 안되는 리스트를 적는 낫투두리스트 서비스
 
 <br>
 
 ## 🧑🏻‍💻 Collaborator
+
 <div align="center">
 
-|팀장|팀원|팀원|팀원|
-|:---:|:---:|:---:|:---:|
-|<a href="https://github.com/chs98412"><img src="https://velog.velcdn.com/images/chs98412/post/27a0d7f3-6f97-42d3-91e9-453efdd039a7/image.jpeg" width="150">|<a href="https://github.com/ekdms5566"><img src="https://velog.velcdn.com/images/chs98412/post/07274634-3c91-4dcd-aab0-b17a037f8fd1/image.jpeg" width="150"></a>|<a href="https://github.com/offbeat24"><img src="https://velog.velcdn.com/images/chs98412/post/8ad1fc12-b7e6-4d3f-b08d-89502636935a/image.jpeg" width="150"></a>|<a href="https://github.com/hyoribogo"><img src="https://velog.velcdn.com/images/chs98412/post/c7e754f8-f2b0-43a0-a361-33cc4dca8f8f/image.jpeg" width="150"></a>|
-[최혁순(BE)](https://github.com/chs98412)|[박다은(FE)](https://github.com/ekdms5566)|[박시현(FE)](https://github.com/offbeat24)|[김효리(FE)](https://github.com/hyoribogo)
+|                                                                            팀장                                                                             |                                                                               팀원                                                                               |                                                                               팀원                                                                               |                                                                               팀원                                                                               |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <a href="https://github.com/chs98412"><img src="https://velog.velcdn.com/images/chs98412/post/27a0d7f3-6f97-42d3-91e9-453efdd039a7/image.jpeg" width="150"> | <a href="https://github.com/ekdms5566"><img src="https://velog.velcdn.com/images/chs98412/post/07274634-3c91-4dcd-aab0-b17a037f8fd1/image.jpeg" width="150"></a> | <a href="https://github.com/offbeat24"><img src="https://velog.velcdn.com/images/chs98412/post/8ad1fc12-b7e6-4d3f-b08d-89502636935a/image.jpeg" width="150"></a> | <a href="https://github.com/hyoribogo"><img src="https://velog.velcdn.com/images/chs98412/post/c7e754f8-f2b0-43a0-a361-33cc4dca8f8f/image.jpeg" width="150"></a> |
+|                                                          [최혁순(BE)](https://github.com/chs98412)                                                          |                                                            [박다은(FE)](https://github.com/ekdms5566)                                                            |                                                            [박시현(FE)](https://github.com/offbeat24)                                                            |                                                            [김효리(FE)](https://github.com/hyoribogo)                                                            |
 
 </div>
 
@@ -27,25 +29,28 @@
 
 ### 로그인
 
+![홈(로그인)](https://user-images.githubusercontent.com/97094709/234816213-122a85d5-74a4-475f-a594-7ee8805a2483.png)
+
 ### 캘린더
+
+![캘린더](https://user-images.githubusercontent.com/97094709/234816367-bcebec0c-efb1-407b-bdc5-371f5b9ea37a.png)
 
 ### 리스트
 
+![투두리스트](https://user-images.githubusercontent.com/97094709/234816591-4fc848d1-0b92-4641-9d81-353c80c42cf2.png)
 
 <br>
 
 ## 협업 툴
-[👨‍👨‍👧‍👧 노션](https://kw-likelion11.notion.site/2-1a62a554ac054d1bbad2279d21bc973f)
+
+[👨‍👨‍👧‍👧 노션](https://kw-likelion11.notion.site/77b91ed84bae4a30b4f87d4f36b5a3d5)
 
 [🎨 피그마](https://www.figma.com/file/TU1FRGXFEjJ21oqb4RGYos/%EB%82%AB%ED%88%AC%EB%91%90%EB%A6%AC%EC%8A%A4%ED%8A%B8?node-id=30%3A286&t=k5fM9c0BLbw4TBDg-1)
-
-[📍 기능 명세](https://kw-likelion11.notion.site/6b800b7a3f4b4c8689e4b7526c000e05)
-
-[🖥 API 명세](https://www.notion.so/kw-likelion11/API-3f64f2edf62f4957877344cbc17aaa49?pvs=4)
 
 <br>
 
 ## 기술 스택
+
 <table>
 <tr>
  <td align="center">언어</td>
@@ -111,14 +116,15 @@
  <td>
     <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white"/>&nbsp
   <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"/>&nbsp
-  <img src="https://img.shields.io/badge/springsecurity-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white"/>&nbsp 
+  <img src="https://img.shields.io/badge/springsecurity-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white"/>&nbsp
 
 </tr>
 </table>
 
 <br>
 
-# 🔥 Git 규칙 
+# 🔥 Git 규칙
+
 <details>
  
 ## 커밋(commit)
@@ -127,35 +133,38 @@
   ◽ 여러 작업을 한 버전에 커밋 ❌   
     → 여러 개 같이 커밋하면, 나중에 그것들 중 하나만 취소해야 될 일 발생할 수 있으니까⋯⋯!   
   ◽ 커밋 최소 단위로 하기, 하나의 의도만 가지고 !  
-    → 버그 수정 + 새 기능 추가 를 같이 커밋 ❌ 
+    → 버그 수정 + 새 기능 추가 를 같이 커밋 ❌
 
 ## 커밋 메시지
-🌟 어떤 작업이 이뤄졌는지 알아볼 수 있게 작성 !  
-→ 이름 아무렇게나 작성해놓으면, 나중에 본인도 거기서 무슨 작업했는지 기억 못함⋯!   
-`ex) git commit -m 'haha'` 
 
-``` 
+🌟 어떤 작업이 이뤄졌는지 알아볼 수 있게 작성 !  
+→ 이름 아무렇게나 작성해놓으면, 나중에 본인도 거기서 무슨 작업했는지 기억 못함⋯!  
+`ex) git commit -m 'haha'`
+
+```
 type : subject
 
-body 
+body
 
 footer
-``` 
+```
+
 구조로 작성
 
 ### type
+
 - 명령문 형태로, 제목 첫 글자는 대문자로 (타입 말고 제목을!)
-- 아래에서 필요한 타입 사용 
-  
-|타입|내용|
-|------|------|
-|feat|새로운 기능 추가|
-|fix| 버그/오류 수정|
-|docs| 문서 수정 |
-|style| 코드 포맷 변경, 세미콜론 누락, 코드 변경 없음|
-|design| 사용자 UI 디자인 변경 (CSS 등)|
-|move| 코드나 파일의 이동|
-|rename| 이름 변경|
-|remove| 삭제|  
+- 아래에서 필요한 타입 사용
+
+| 타입   | 내용                                          |
+| ------ | --------------------------------------------- |
+| feat   | 새로운 기능 추가                              |
+| fix    | 버그/오류 수정                                |
+| docs   | 문서 수정                                     |
+| style  | 코드 포맷 변경, 세미콜론 누락, 코드 변경 없음 |
+| design | 사용자 UI 디자인 변경 (CSS 등)                |
+| move   | 코드나 파일의 이동                            |
+| rename | 이름 변경                                     |
+| remove | 삭제                                          |
 
 </details>
