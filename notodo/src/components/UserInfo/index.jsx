@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllContent, getProfile } from "../../api/api"
+import { getAllContent } from "../../api/api"
 import { setLength } from "../../redux/slice/listSlice";
 import * as S from "./style"
 

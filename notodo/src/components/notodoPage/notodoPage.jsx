@@ -163,7 +163,7 @@ function NotodoPage() {
     setInputValue(input)
 
     if (!isEditing[id]) {
-      await setIsEditing({
+      setIsEditing({
         [id]: true
       })
     }
