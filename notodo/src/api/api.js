@@ -12,11 +12,15 @@ const instanceUtil = axios.create({
 instanceUtil.interceptors.request.use(
   (config) => {
     const res = JSON.parse(sessionStorage.getItem("persist:root"))
-    if (JSON.parse(res.reducer).token) {
+    if (JSON.parse(res.reducer).token && (new Date(JSON.parse(res.reducer).expirationTime) > new Date())) {
       const userToken = JSON.parse(res.reducer).token;
+      console.log(new Date(JSON.parse(res.reducer).expirationTime))
       config.headers.Authorization = userToken;
       return config;
-    } else window.location.replace("/");
+    } else {
+      sessionStorage.clear();
+      window.location.replace('/');
+    }
   },
   (error) => {
     console.error(error);
