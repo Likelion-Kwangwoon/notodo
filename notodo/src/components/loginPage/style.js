@@ -1,13 +1,5 @@
 import styled from 'styled-components';
 
-export const Wrap = styled.section`
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; */
-`
-
 export const TitleLogo = styled.img`
   margin: 0 auto;
   position: absolute;

@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   date: '',
-  list: []
 };
 
 const dateSlice = createSlice({
@@ -11,7 +10,7 @@ const dateSlice = createSlice({
   reducers: {
     setDate: (state, action) => {
       state.date = action.payload
-    }
+    },
   }
 })
 

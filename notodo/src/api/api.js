@@ -35,7 +35,7 @@ export const getContent = async (date) => {
 };
 
 
-export const getAllContent = async (date) => {
+export const getAllContent = async () => {
   try {
     const response = await instanceUtil.get(`/notodo/viewall`);
 
@@ -78,3 +78,26 @@ export const postFail = async (data) => {
     return error;
   }
 };
+
+export const modifyNotodo = async (data) => {
+  try {
+    const response = await instanceUtil.put(`/notodo/put`, data);
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
+export const deleteNotodo = async (data) => {
+  try {
+    const response = await instanceUtil.delete(`/notodo/delete`, data);
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+

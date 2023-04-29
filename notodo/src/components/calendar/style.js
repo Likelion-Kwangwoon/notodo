@@ -23,6 +23,7 @@ export const Header = styled.div`
 `;
 
 export const DayWrap = styled.div`
+  min-width: 350px;
   font-family: "Gamja Flower", cursive;
   color: ${(props) => props.theme.text.gray1};
   background-color: ${(props) => props.theme.action.lgYellow};
@@ -45,6 +46,7 @@ export const DayWrap = styled.div`
 `;
 
 export const RowWrap = styled.div`
+  min-width: 350px;
   font-family: "Gamja Flower", cursive;
   display: flex;
   flex-wrap: nowrap;
