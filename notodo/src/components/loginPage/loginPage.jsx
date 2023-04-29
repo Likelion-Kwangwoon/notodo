@@ -9,7 +9,7 @@ import kakaoLogo from '../../assets/icon-kakao.svg'
 function LoginPage() {
 
   const navigate = useNavigate();
-  const token = useSelector((state) => state.reducer.token);
+  const token = useSelector((state) => state.token.token);
 
   useEffect(() => {
     if ( token !== "" ) {

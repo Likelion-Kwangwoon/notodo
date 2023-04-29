@@ -1,6 +1,13 @@
 import axios from "axios";
+import store from "../redux/store";
 
 const baseURL = process.env.REACT_APP_URL;
+const CancelToken = axios.CancelToken;
+let cancel;
+
+if (cancel !== undefined) {
+  cancel('cancel');
+}
 
 const instanceUtil = axios.create({
   baseURL,
@@ -11,19 +18,20 @@ const instanceUtil = axios.create({
 
 instanceUtil.interceptors.request.use(
   (config) => {
-    const res = JSON.parse(sessionStorage.getItem("persist:root"))
-    if (JSON.parse(res.reducer).token && (new Date(JSON.parse(res.reducer).expirationTime) > new Date())) {
-      const userToken = JSON.parse(res.reducer).token;
-      console.log(new Date(JSON.parse(res.reducer).expirationTime))
-      config.headers.Authorization = userToken;
-      return config;
-    } else {
-      sessionStorage.clear();
-      window.location.replace('/');
+    const token = store.getState().token.token;
+    const expirationTime = store.getState().token.expirationTime;
+
+    if (!!token && expirationTime > new Date().getTime()) {
+      config.headers.Authorization = token;
     }
+    else {
+      sessionStorage.clear();
+      window.location.replace("/");
+    }
+    return config;
   },
   (error) => {
-    console.error(error);
+    return Promise.reject(error);
   }
 );
 
