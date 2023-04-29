@@ -22,15 +22,16 @@ const initialState = {
   expirationTime  : "",
 }
 const persistConfig = {
-  key: "root",
+  key: "token",
   storage,
-}
-const reducer = createReducer(initialState, (builder) => {
+  whitelist: ["token"],
+};
+
+const tokenReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(logIn, (state, action) => {
       state.token = action.payload
-      state.expirationTime = new Date(new Date().getTime() + 60 * 1 * 60)
-      console.log(state.expirationTime)
+      state.expirationTime = new Date().getTime() + 30 * 60 * 1000;
     })
     .addCase(logOut, (state) => {
       state.token = ""
@@ -39,7 +40,7 @@ const reducer = createReducer(initialState, (builder) => {
 })
 
 const rootReducer = combineReducers({
-  reducer,
+  token: tokenReducer,
   date: dateReducer,
   list: listReducer,
 });
