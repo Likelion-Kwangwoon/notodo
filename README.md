@@ -1,12 +1,14 @@
 # notodo
 
-<hr />
-
 ## ✨ 프로젝트 소개
+
+<br/>
 
 <div align="center">
 <img src="notodo\src\assets\logo.svg" width="300">
 </div>
+
+<br/>
 
 ```
 노토도(NOTODO)는 투두리스트의 반대인 낫투두리스트를 작성하는 서비스입니다.
