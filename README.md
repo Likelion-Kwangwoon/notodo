@@ -4,7 +4,7 @@
 
 <br/>
 
-<div align="center">
+<div align="center"></div>
 <img src="notodo\src\assets\logo.svg" width="300">
 </div>
 
@@ -26,14 +26,10 @@
 
 ## 🧑🏻‍💻 Collaborator
 
-<div align="center">
-
 
 | 팀장 | 팀원 | 팀원 | 팀원 |
 | :---: | :---: | :---: | :---: |
 | <a href="https://github.com/chs98412"><img src="https://velog.velcdn.com/images/chs98412/post/27a0d7f3-6f97-42d3-91e9-453efdd039a7/image.jpeg" width="150"> | <a href="https://github.com/ekdms5566"><img src="https://velog.velcdn.com/images/chs98412/post/07274634-3c91-4dcd-aab0-b17a037f8fd1/image.jpeg" width="150"></a> | <a href="https://github.com/offbeat24"><img src="https://velog.velcdn.com/images/chs98412/post/8ad1fc12-b7e6-4d3f-b08d-89502636935a/image.jpeg" width="150"></a> | <a href="https://github.com/hyoribogo"><img src="https://velog.velcdn.com/images/chs98412/post/c7e754f8-f2b0-43a0-a361-33cc4dca8f8f/image.jpeg" width="150"></a> |[최혁순(BE)](https://github.com/chs98412)  | [박다은(FE)](https://github.com/ekdms5566)|[박시현(FE)](https://github.com/offbeat24)|[김효리(FE)](https://github.com/hyoribogo)|
-
-</div>
 
 <br>
 
