@@ -1,14 +1,24 @@
-<br><br>
+# notodo
+
+<hr />
+
+## ✨ 프로젝트 소개
 
 <div align="center">
 <img src="notodo\src\assets\logo.svg" width="300">
 </div>
 
-<br><br>
+```
+노토도(NOTODO)는 투두리스트의 반대인 낫투두리스트를 작성하는 서비스입니다.
 
-# notodo
+항상 해야할 일만 적는 투두리스트 대신, '하지 말아야 할 일' 리스트를 적고 이를 지키는 것도 중요합니다.
+목표를 달성하는 데에 방해가 되는 요소를 작성하고 그것을 제한함으로써, 효율적으로 행동할 수 있습니다.
 
-> 하면 안되는 리스트를 적는 낫투두리스트 서비스
+'낮잠 자지 않기', '새벽 2시 이후에 잠들지 않기', '멍 때리지 않기'
+간단하지만 자연스레 전부 하게 되던 안 좋은 습관들.
+
+이번 기회에 바로 잡아보는 건 어떨까요?
+```
 
 <br>
 
@@ -16,28 +26,23 @@
 
 <div align="center">
 
-|                                                                            팀장                                                                             |                                                                               팀원                                                                               |                                                                               팀원                                                                               |                                                                               팀원                                                                               |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <a href="https://github.com/chs98412"><img src="https://velog.velcdn.com/images/chs98412/post/27a0d7f3-6f97-42d3-91e9-453efdd039a7/image.jpeg" width="150"> | <a href="https://github.com/ekdms5566"><img src="https://velog.velcdn.com/images/chs98412/post/07274634-3c91-4dcd-aab0-b17a037f8fd1/image.jpeg" width="150"></a> | <a href="https://github.com/offbeat24"><img src="https://velog.velcdn.com/images/chs98412/post/8ad1fc12-b7e6-4d3f-b08d-89502636935a/image.jpeg" width="150"></a> | <a href="https://github.com/hyoribogo"><img src="https://velog.velcdn.com/images/chs98412/post/c7e754f8-f2b0-43a0-a361-33cc4dca8f8f/image.jpeg" width="150"></a> |
-|                                                          [최혁순(BE)](https://github.com/chs98412)                                                          |                                                            [박다은(FE)](https://github.com/ekdms5566)                                                            |                                                            [박시현(FE)](https://github.com/offbeat24)                                                            |                                                            [김효리(FE)](https://github.com/hyoribogo)                                                            |
+
+| 팀장 | 팀원 | 팀원 | 팀원 |
+| :---: | :---: | :---: | :---: |
+| <a href="https://github.com/chs98412"><img src="https://velog.velcdn.com/images/chs98412/post/27a0d7f3-6f97-42d3-91e9-453efdd039a7/image.jpeg" width="150"> | <a href="https://github.com/ekdms5566"><img src="https://velog.velcdn.com/images/chs98412/post/07274634-3c91-4dcd-aab0-b17a037f8fd1/image.jpeg" width="150"></a> | <a href="https://github.com/offbeat24"><img src="https://velog.velcdn.com/images/chs98412/post/8ad1fc12-b7e6-4d3f-b08d-89502636935a/image.jpeg" width="150"></a> | <a href="https://github.com/hyoribogo"><img src="https://velog.velcdn.com/images/chs98412/post/c7e754f8-f2b0-43a0-a361-33cc4dca8f8f/image.jpeg" width="150"></a> |[최혁순(BE)](https://github.com/chs98412)  | [박다은(FE)](https://github.com/ekdms5566)|[박시현(FE)](https://github.com/offbeat24)|[김효리(FE)](https://github.com/hyoribogo)|
 
 </div>
 
 <br>
 
-## 페이지 소개
+## 💫 화면 구성
 
-### 로그인
+| 로그인 | 캘린더 | 리스트 |
+|:---:|:---:|:---:|
+|<img src="https://user-images.githubusercontent.com/97094709/235503472-e4b5d8bc-07bd-4816-a37a-45ce62ec35c5.gif" width="200px"/>|<img src="https://user-images.githubusercontent.com/97094709/235506433-12897ab8-7fc5-43bd-b47b-707a666f7cad.png" width="200px"/>|<img src="https://user-images.githubusercontent.com/97094709/235506630-e0d52adf-2a3f-4713-8cf5-61c524747caa.png" width="200px"/>|
+| 리스트 추가 | 리스트 수정, 삭제 | 성공 or 실패 기록 |
+|<img src="https://user-images.githubusercontent.com/97094709/235503737-948da39b-cbb4-4565-9f53-6a217852ec82.gif" width="200px"/>|<img src="https://user-images.githubusercontent.com/97094709/235503731-8da01fe0-403e-4931-8529-e90a5882c190.gif" width="200px"/>|<img src="https://user-images.githubusercontent.com/97094709/235503743-73085328-76f7-41aa-9749-5f1013cb6e89.gif" width="200px"/>|
 
-![홈(로그인)](https://user-images.githubusercontent.com/97094709/234816213-122a85d5-74a4-475f-a594-7ee8805a2483.png)
-
-### 캘린더
-
-![캘린더](https://user-images.githubusercontent.com/97094709/234816367-bcebec0c-efb1-407b-bdc5-371f5b9ea37a.png)
-
-### 리스트
-
-![투두리스트](https://user-images.githubusercontent.com/97094709/234816591-4fc848d1-0b92-4641-9d81-353c80c42cf2.png)
 
 <br>
 
@@ -168,3 +173,13 @@ footer
 | remove | 삭제                                          |
 
 </details>
+
+<br />
+
+### 🌟 시작 가이드
+
+```
+$ git clone https://github.com/Likelion-Kwangwoon/notodo
+$ yarn i
+$ yarn start
+```
