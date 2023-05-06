@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-  background: ${props => props.theme.bg.main};
   margin: 0 auto;
   position: relative;
   width: 100%;
@@ -13,7 +12,7 @@ export const Header = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 210px;
-  background: ${(props) => props.theme.bg.white};
+  background: ${(props) => props.theme.action.white};
   box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.1);
   padding-top: 70px;
   position: sticky;
@@ -48,7 +47,6 @@ export const NotodoWrap = styled.ul`
   box-sizing: border-box;
   overflow-y: scroll;
   padding: 20px;
-  background: ${props => props.theme.bg.main};
   margin: 0 auto;
   
   ::-webkit-scrollbar {
@@ -58,7 +56,7 @@ export const NotodoWrap = styled.ul`
 
 export const NotodoLi = styled.li`
   height: 50px;
-  border-bottom: 0.5px solid ${props => props.theme.text.gray2};
+  border-bottom: 0.5px solid ${(props) => props.theme.gray.g3};
   display: flex;
   align-items: center;
   padding-left: 2px;
@@ -70,12 +68,7 @@ export const NotodoLi = styled.li`
   & > button:last-child {
     margin-right: 8px;
   }
-
-  &:active {
-  background: ${props => props.theme.action.lgYellow};
-  border-radius: 5px;
-}
-`
+`;
 
 export const ContentWrap = styled.div`
   width: 100%;
@@ -87,27 +80,27 @@ export const ContentWrap = styled.div`
     outline: none;
     background: transparent;
     width: 0.1px;
-    color: ${props => props.theme.text.gray3};
+    color: ${(props) => props.theme.gray.g5};
     font-size: 14px;
     padding: 0;
-    font-family: 'Pretendard';
+    font-family: "Pretendard";
   }
 
   & > p {
     font-size: 14px;
     line-height: 17px;
-    color: ${props => props.theme.text.gray1};
+    color: ${(props) => props.theme.gray.g4};
   }
 
   & > p:nth-child(2) {
     margin-left: 5px;
   }
-`
+`;
 
 export const Footer = styled.div`
   width: 100%;
   height: 111px;
-  background: ${(props) => props.theme.bg.white};
+  background: #F9F9F9;
   padding: 10px 20px 30px;
   display: flex;
   justify-content: space-between;
@@ -120,22 +113,25 @@ export const Footer = styled.div`
 `;
 
 export const ResultWrap = styled.div`
-  font-family: "Gamja Flower", cursive;
-  font-size: 15px;
-  color: ${(props) => props.theme.text.gray1};
+  font-size: 10px;
+  color: ${(props) => props.theme.gray.g4};
   display: flex;
   gap: 17px;
+  font-weight: 700;
 
   & :nth-child(1)::after {
     content: "TASKS";
     margin-left: 5px;
+    color: ${(props) => props.theme.gray.g1};
+    font-weight: 200;
   }
 
   & :nth-child(2) {
     color: ${(props) => props.theme.action.green};
     &::after {
-      color: ${(props) => props.theme.text.gray1};
+      color: ${(props) => props.theme.gray.g1};
       content: "SUCCESSFUL";
+      font-weight: 200;
       margin-left: 5px;
     }
   }
@@ -143,8 +139,9 @@ export const ResultWrap = styled.div`
   & :nth-child(3) {
     color: ${(props) => props.theme.action.red};
     &::after {
-      color: ${(props) => props.theme.text.gray1};
+      color: ${(props) => props.theme.gray.g1};
       content: "FAILED";
+      font-weight: 200;
       margin-left: 5px;
     }
   }
@@ -158,5 +155,5 @@ export const AddBtn = styled.button`
 
 export const Empty = styled.div`
   margin-top: 20%;
-  color: ${(props) => props.theme.text.gray3};
-`
+  color: ${(props) => props.theme.gray.g4};
+`;

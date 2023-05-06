@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StateUl = styled.ul`
-  color: ${(props) => props.theme.text.black};
+  color: ${(props) => props.theme.action.black};
 `;
 
 export const StateLi = styled.li`

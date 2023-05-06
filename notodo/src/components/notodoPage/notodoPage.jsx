@@ -1,10 +1,10 @@
 import * as S from './style';
 import iconCalendar from '../../assets/icon-calendar.svg';
 import Logo from '../../assets/logo.svg';
-import iconUpDisabled from '../../assets/icon-up-gray.svg';
-import iconUpActived from '../../assets/icon-up-green.svg';
-import iconDownDisabled from '../../assets/icon-down-gray.svg';
-import iconDownActived from '../../assets/icon-down-red.svg';
+import iconUpDisabled from '../../assets/icon-suc.svg';
+import iconUpActived from '../../assets/icon-suc-fill.svg';
+import iconDownDisabled from '../../assets/icon-fail.svg';
+import iconDownActived from '../../assets/icon-fail-fill.svg';
 import iconPlus from '../../assets/icon-plus.svg';
 import WeekPicker from "../WeekPicker"
 import { useState } from 'react';

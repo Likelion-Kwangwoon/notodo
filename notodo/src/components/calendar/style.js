@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 export const Wrap = styled.div`
   min-width: 350px;
   padding: 0 20px;
-  background-color: ${(props) => props.theme.bg.white};
+  background-color: ${(props) => props.theme.action.white};
   box-sizing: border-box;
 `;
 
@@ -13,7 +13,7 @@ export const Header = styled.div`
   padding: 0 16px;
   align-items: center;
   font-size: 20px;
-  color: ${(props) => props.theme.text.black};
+  color: ${(props) => props.theme.action.black};
   margin-bottom: 24px;
 
   & > button {
