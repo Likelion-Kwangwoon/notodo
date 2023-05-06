@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LoginPage from './components/loginPage/loginPage';
-import CalendarPage from './components/calendarPage/calendarPage';
-import NotodoPage from './components/notodoPage/notodoPage';
-import KakaoLogin from './components/loginPage/kakaoLogin';
+import LoginPage from "./pages/loginPage/loginPage";
+import CalendarPage from './pages/calendarPage/calendarPage';
+import NotodoPage from "./pages/notodoPage/notodoPage";
+import KakaoLogin from "./pages/loginPage/kakaoLogin";
 import React from 'react';
 
 function Router() {

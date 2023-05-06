@@ -1,7 +1,7 @@
-import Calendar from "../calendar";
+import Calendar from "../../components/calendar";
 import * as S from "./style"
-import UserInfo from "../UserInfo";
-import MonthState from "../MonthState";
+import UserInfo from "../../components/UserInfo";
+import MonthState from "../../components/MonthState";
 
 export default function calendarPage() {
   return (
