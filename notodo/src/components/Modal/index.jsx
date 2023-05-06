@@ -17,7 +17,7 @@ const Modal = ({ children, onClose, width }) => {
 
   return (
     <S.ModalOverlay style={{ width }} onClick={handleOverlayClick}>
-      <S.ModalContent>{children}</S.ModalContent>
+      {children}
     </S.ModalOverlay>
   );
 };

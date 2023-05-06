@@ -30,3 +30,19 @@ export const UserLi = styled.li`
     margin-left: auto;
   }
 `;
+
+export const DelModal = styled.div`
+  background-color: ${(props) => props.theme.action.white};
+  border-radius: 10px;
+  padding: 29px 47px;
+  width: max-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  & > p {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+`;
