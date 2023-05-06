@@ -6,6 +6,10 @@ export const StateUl = styled.ul`
 
 export const StateLi = styled.li`
   margin-bottom: 8px;
+  font-size: 12px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
 
   & > img {
     width: 18px;
@@ -13,7 +17,16 @@ export const StateLi = styled.li`
     margin-right: 5px;
   }
 
-  & > span {
-    font-family: "Gamja Flower", cursive;
+  &::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 50px;
+    background-color: ${(props) => props.theme.action.red};
+  }
+
+  &:first-child::before {
+    background-color: ${(props) => props.theme.action.green};
   }
 `;
