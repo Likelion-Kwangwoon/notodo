@@ -15,7 +15,7 @@ export const Div = styled.div`
 `;
 
 export const DescWrap = styled.div`
-  color: ${(props) => props.theme.text.black};
+  color: ${(props) => props.theme.action.black};
 
   & > p:first-child {
     font-weight: 800;
@@ -23,7 +23,7 @@ export const DescWrap = styled.div`
     &::after {
       content: "님";
       font-weight: 300;
-      color: ${(props) => props.theme.text.gray1};
+      color: ${(props) => props.theme.gray.g4};
     }
   }
 

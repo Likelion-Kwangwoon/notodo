@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrap = styled.div`
   min-width: 350px;
   padding: 0 20px;
-  background-color: ${(props) => props.theme.bg.white};
+  background-color: ${(props) => props.theme.action.white};
   box-sizing: border-box;
 `;
 
@@ -13,8 +13,8 @@ export const Header = styled.div`
   padding: 0 16px;
   align-items: center;
   font-size: 20px;
-  color: ${(props) => props.theme.text.black};
-  margin-bottom: 28px;
+  color: ${(props) => props.theme.action.black};
+  margin-bottom: 24px;
 
   & > button {
     background-color: inherit;
@@ -24,63 +24,81 @@ export const Header = styled.div`
 
 export const DayWrap = styled.div`
   min-width: 350px;
-  font-family: "Gamja Flower", cursive;
-  color: ${(props) => props.theme.text.gray1};
-  background-color: ${(props) => props.theme.action.lgYellow};
-  font-size: 14px;
+  color: ${(props) => props.theme.gray.g4};
+  font-size: 12px;
+  margin-bottom: 29px;
   display: flex;
   flex-wrap: nowrap;
-  border-top: 1px solid ${(props) => props.theme.text.gray2};
-  border-bottom: 1px solid ${(props) => props.theme.text.gray2};
 
   & > span {
-    padding: 7px 18px;
-    height: 100%;
     flex-grow: 1;
     flex-basis: 0;
-    border-right: 1px solid ${(props) => props.theme.text.gray2};
-    &:last-child {
-      border: none;
-    }
   }
 `;
 
 export const RowWrap = styled.div`
   min-width: 350px;
-  font-family: "Gamja Flower", cursive;
   display: flex;
   flex-wrap: nowrap;
   font-size: 14px;
   box-sizing: border-box;
-  height: 92px;
-  color: ${(props) => props.theme.text.black};
+  height: 80px;
+  color: ${(props) => props.theme.action.black};
 `;
 
 
-export const CellWrap = styled.div`
+export const CellWrap = styled.span`
   flex-grow: 1;
   flex-basis: 0;
-  text-align: right;
-  padding: 6px;
-  border-right: 1px solid ${(props) => props.theme.text.gray2};
-  border-bottom: 1px solid ${(props) => props.theme.text.gray2};
-
-  & > span {
-    display: block;
-  }
-
-  & > img {
-    display: block;
-    margin: 18px auto 0;
-    width: 30px;
-  }
-
-  &:last-child {
-    border-right: none;
-  }
+  padding: 8px;
+  display: block;
+  z-index: 10;
+  position: relative;
 
   &.disabled {
-    color: ${(props) => props.theme.text.gray3};
+    color: ${(props) => props.theme.gray.g5};
     pointer-events: none;
+  }
+
+  &.today::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    width: 6px;
+    height: 6px;
+    right: 50%;
+    transform: translate(50%);
+    border-radius: 50px;
+    background-color: ${(props) => props.theme.action.yellow};
+  }
+
+  &.now::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 50%;
+    transform: translate(50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+
+    ${(props) =>
+      props.bg === "red" &&
+      css`
+        background-color: ${(props) => props.theme.action.red};
+      `}
+
+    ${(props) =>
+      props.bg === "green" &&
+      css`
+        background-color: ${(props) => props.theme.action.green};
+      `}
+
+      ${(props) =>
+      props.bg === "gray" &&
+      css`
+        background-color: ${(props) => props.theme.gray.g2};
+      `}
   }
 `;

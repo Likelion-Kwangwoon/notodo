@@ -10,8 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setDate } from "../../redux/slice/dateSlice";
 import { getContent } from "../../api/api";
-import { CharList } from "../../assets/CharList";
-import { failList, resetList, sucList, uncheckList } from "../../redux/slice/listSlice";
+import { failList, resetList, sucList } from "../../redux/slice/listSlice";
 
 dayjs.extend(objectPlugin);
 dayjs.extend(weekdayPlugin);
@@ -41,11 +40,11 @@ export default function Calendar() {
       if (value.length) {
         for (let i = 0; i < value.length; i++) {
           if (value[i].status === 2) {
-            result = 3
+            result = 'red'
             break;
           } else if (value[i].status === 0) {
-            result = 1
-          } else result = 2
+            result = 'gray'
+          } else result = 'green'
         }
       } 
       else result = 0
@@ -54,15 +53,12 @@ export default function Calendar() {
 
     for (const i of resultArr) {
        switch (i) {
-        case 3:
+        case 'red':
           dispatch(failList())
           break;
-        case 2:
+        case 'green':
           dispatch(sucList())
-          break;
-        case 1:
-          dispatch(uncheckList())
-          break;
+           break;
         default:
           break;
       }
@@ -142,9 +138,8 @@ export default function Calendar() {
       week.dates.forEach((d, i) => {
         days.push(
           <S.CellWrap onClick={() => handleGetDay(d)}
-            className={!d.isCurrentMonth ? "disabled" : ""} key={i}>
-            <span> {d.day} </span>
-            {d.isCurrentMonth && <img src={CharList[stateArr[d.day-1]-1]} alt="" />}
+            className={!d.isCurrentMonth ? "disabled" : dayjs(`${d.year}-${(d.month + 1)}-${(d.day)}`).format('YYMD') === dayjs().format('YYMD') ? 'now today' : 'now'} bg={stateArr[d.day - 1]} key={i}>
+            {d.day}
           </S.CellWrap>
         );
       });
