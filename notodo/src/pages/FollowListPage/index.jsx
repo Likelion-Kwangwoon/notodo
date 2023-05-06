@@ -1,4 +1,5 @@
 import { useState } from "react"
+import UserList from "../../components/UserList"
 import * as S from "./style"
 
 export default function FollowListPage() {
@@ -19,6 +20,7 @@ export default function FollowListPage() {
         <S.TabNav className={isFollower && 'on'} onClick={handleIsFollower}>팔로워</S.TabNav>
         <S.TabNav className={!isFollower && 'on'} onClick={handleIsFollowing}>팔로잉</S.TabNav>
       </S.NavWrap>
+      <UserList />
     </>
   )
 }
