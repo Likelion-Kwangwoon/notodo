@@ -4,17 +4,19 @@ import CalendarPage from './pages/calendarPage/calendarPage';
 import NotodoPage from "./pages/notodoPage/notodoPage";
 import KakaoLogin from "./pages/loginPage/kakaoLogin";
 import React from 'react';
+import FollowListPage from './pages/FollowListPage';
 
 function Router() {
-  return(
+  return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<LoginPage />} />
-        <Route path='/redirect' element={<KakaoLogin />} />
-        <Route path='/calendar' element={<CalendarPage />} />
-        <Route path='/notodo' element={<NotodoPage />} />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/redirect" element={<KakaoLogin />} />
+        <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/notodo" element={<NotodoPage />} />
+        <Route path="/follow" element={<FollowListPage />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 export default Router;
