@@ -6,7 +6,7 @@ import iconUpActived from '../../assets/icon-suc-fill.svg';
 import iconDownDisabled from '../../assets/icon-fail.svg';
 import iconDownActived from '../../assets/icon-fail-fill.svg';
 import iconPlus from '../../assets/icon-plus.svg';
-import WeekPicker from "../WeekPicker"
+import WeekPicker from "../../components/WeekPicker"
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useRef } from 'react';
@@ -14,8 +14,8 @@ import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { postList, getContent, postSuccess, postFail } from "../../api/api.js";
-import TodoPopupMenu from '../TodoPopupMenu';
-import Modal from '../Modal';
+import TodoPopupMenu from '../../components/TodoPopupMenu';
+import Modal from '../../components/Modal';
 
 function NotodoPage() {
   const date = useSelector(state => state.date.date)
