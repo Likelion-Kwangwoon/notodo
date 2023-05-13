@@ -1,6 +1,4 @@
 import * as S from './style';
-import iconCalendar from '../../assets/icon-calendar.svg';
-import Logo from '../../assets/logo.svg';
 import iconUpDisabled from '../../assets/icon-suc.svg';
 import iconUpActived from '../../assets/icon-suc-fill.svg';
 import iconDownDisabled from '../../assets/icon-fail.svg';
@@ -206,10 +204,6 @@ function NotodoPage() {
   return (
     <S.Div ref={divRef}>
       <S.Header>
-        <div>
-          <button onClick={() => navigate('/calendar')}><S.CalImg src={iconCalendar} /></button>
-          <S.Logo src={Logo} />
-        </div>
         <WeekPicker />
       </S.Header>
       <S.NotodoWrap>

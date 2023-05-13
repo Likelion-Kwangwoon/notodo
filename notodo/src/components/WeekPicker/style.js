@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const WeekPicker = styled.div`
   box-sizing: border-box;
   height: 67px;
-  margin: 15px auto;
+  margin: 0 auto;
   display: flex;
   justify-content: space-evenly;
 `;

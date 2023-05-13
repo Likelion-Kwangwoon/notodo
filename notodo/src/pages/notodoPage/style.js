@@ -10,25 +10,12 @@ export const Div = styled.div`
 
 export const Header = styled.div`
   box-sizing: border-box;
+  padding: 16px 0 16px 0;
   width: 100%;
-  height: 210px;
   background: ${(props) => props.theme.action.white};
   box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.1);
-  padding-top: 70px;
   position: sticky;
   top: 0;
-
-  & > div:first-child > button {
-    position: absolute;
-    width: 99px;
-    height: 76px;
-  }
-
-  & > div:first-child {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
 `;
 
 export const CalImg = styled.img`

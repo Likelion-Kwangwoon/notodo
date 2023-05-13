@@ -15,7 +15,6 @@ export default function FollowListPage() {
 
   return (
     <>
-      <S.Title>친구 목록</S.Title>
       <S.NavWrap>
         <S.TabNav className={isFollower && 'on'} onClick={handleIsFollower}>팔로워</S.TabNav>
         <S.TabNav className={!isFollower && 'on'} onClick={handleIsFollowing}>팔로잉</S.TabNav>

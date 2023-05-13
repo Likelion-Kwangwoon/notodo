@@ -1,13 +1,5 @@
 import styled from "styled-components";
 
-export const Title = styled.h1`
-  color: ${(props) => props.theme.action.black};
-  font-weight: 700;
-  font-size: 18px;
-  padding: 59px 0 20px;
-  background-color: ${props => props.theme.action.white};
-`;
-
 export const NavWrap = styled.div`
   display: flex;
   justify-content: center;
