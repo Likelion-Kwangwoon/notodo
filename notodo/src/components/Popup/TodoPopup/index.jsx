@@ -1,6 +1,6 @@
 import * as S from './style';
 
-export default function TodoPopupMenu(props) {
+export default function TodoPopup(props) {
   const handleEdit = () => {
     props.onEdit(props.id)
   }
