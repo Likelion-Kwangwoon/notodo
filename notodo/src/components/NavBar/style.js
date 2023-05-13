@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const NavWrap = styled.nav`
-  background-color: ${(props) => props.theme.action.white};
   position: fixed;
   bottom: 0;
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
+  background-color: ${(props) => props.theme.action.white};
 `;
 
 export const NavUl = styled.ul`

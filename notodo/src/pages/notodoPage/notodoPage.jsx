@@ -227,14 +227,14 @@ function NotodoPage() {
         }
       </S.NotodoWrap>
       {!showPopup &&
-        <S.Footer>
+        <S.Status>
           <S.ResultWrap>
             <span>{notodoList.length}</span>
             <span>{notodoList.filter(i => i.status === 1).length}</span>
             <span>{notodoList.filter(i => i.status === 2).length}</span>
           </S.ResultWrap>
           <S.AddBtn onClick={handleAddButtonClick}><img src={iconPlus} alt=""/></S.AddBtn>
-        </S.Footer>}
+        </S.Status>}
 
       {showPopup && (
         <Modal width={modalWidth} onClose={handleCancel}>
