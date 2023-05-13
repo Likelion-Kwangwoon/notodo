@@ -6,4 +6,5 @@ export const Wrap = styled.div`
   align-items: center;
   margin: 60px 20px 40px;
   min-width: 350px;
+  padding-top: 24px;
 `;

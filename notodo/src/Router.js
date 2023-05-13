@@ -5,6 +5,9 @@ import NotodoPage from "./pages/notodoPage/notodoPage";
 import KakaoLogin from "./pages/loginPage/kakaoLogin";
 import React from 'react';
 import FollowListPage from './pages/FollowListPage';
+import MainWrapper from './layouts/MainWrapper';
+import SettingPage from './pages/SettingPage';
+import SearchPage from './pages/SearchPage';
 
 function Router() {
   return (
@@ -12,9 +15,13 @@ function Router() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/redirect" element={<KakaoLogin />} />
-        <Route path="/calendar" element={<CalendarPage />} />
-        <Route path="/notodo" element={<NotodoPage />} />
-        <Route path="/follow" element={<FollowListPage />} />
+        <Route element={<MainWrapper />}>
+          <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/notodo" element={<NotodoPage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/follow" element={<FollowListPage />} />
+          <Route path="/setting" element={<SettingPage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
