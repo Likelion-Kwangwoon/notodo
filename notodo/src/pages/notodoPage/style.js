@@ -84,17 +84,16 @@ export const ContentWrap = styled.div`
   }
 `;
 
-export const Footer = styled.div`
+export const Status = styled.div`
   width: 100%;
-  height: 111px;
   background: #F9F9F9;
-  padding: 10px 20px 30px;
+  padding: 16px 30px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
   position: fixed;
-  bottom: 0;
+  bottom: 83px;
   max-width: 500px;
   box-shadow: 0px -10px 10px -10px rgba(0, 0, 0, 0.1);
 `;
@@ -110,7 +109,7 @@ export const ResultWrap = styled.div`
     content: "TASKS";
     margin-left: 5px;
     color: ${(props) => props.theme.gray.g1};
-    font-weight: 200;
+    font-weight: 400;
   }
 
   & :nth-child(2) {
@@ -118,7 +117,7 @@ export const ResultWrap = styled.div`
     &::after {
       color: ${(props) => props.theme.gray.g1};
       content: "SUCCESSFUL";
-      font-weight: 200;
+      font-weight: 400;
       margin-left: 5px;
     }
   }
@@ -128,7 +127,7 @@ export const ResultWrap = styled.div`
     &::after {
       color: ${(props) => props.theme.gray.g1};
       content: "FAILED";
-      font-weight: 200;
+      font-weight: 400;
       margin-left: 5px;
     }
   }
