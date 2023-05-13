@@ -8,7 +8,7 @@ export const Div = styled.div`
   max-width: 500px;
   box-shadow: 0px -4px 10px -3px rgba(0, 0, 0, 0.1);
   border-radius: 10px 10px 0 0;
-  padding: 20px 0;
+  padding: 20px 0 20px;
 `
 
 export const Btn = styled.button`
