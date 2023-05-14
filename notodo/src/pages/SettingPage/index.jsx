@@ -1,4 +1,4 @@
-import { Ul, Li } from './style';
+import { Ul, Li } from './style'
 
 export default function SettingPage() {
   return (

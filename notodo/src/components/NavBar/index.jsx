@@ -10,16 +10,18 @@ import iconProfile from "../../assets/icon-profile.svg"
 import iconProfileFill from "../../assets/icon-profile-fill.svg"
 
 export default function NavBar() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const location = useLocation()
-
+  
   return (
     <S.NavWrap>
       <S.NavUl>
         <S.NavLi
-          className={location.pathname.includes('/calendar') || location.pathname.includes('/notodo') ? 'on' : 'off'}
-          onClick={() => navigate('/calendar')}>
-            <img src={location.pathname.includes('/calendar') || location.pathname.includes('/notodo') ? iconHomeFill : iconHome} />
+          className={location.pathname.includes('/my') || 
+          location.pathname.includes('/notodo') ? 'on' : 'off'}
+          onClick={() => navigate('/mycalendar')}>
+            <img src={location.pathname.includes('/my') || 
+            location.pathname.includes('/notodo') ? iconHomeFill : iconHome} />
             <p>홈</p>
         </S.NavLi>
         <S.NavLi

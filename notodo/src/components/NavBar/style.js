@@ -6,6 +6,7 @@ export const NavWrap = styled.nav`
   width: 100%;
   max-width: 500px;
   background-color: ${(props) => props.theme.action.white};
+  z-index: 10;
 `;
 
 export const NavUl = styled.ul`

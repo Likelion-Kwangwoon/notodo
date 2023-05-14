@@ -20,6 +20,23 @@ export default function Header() {
     setShowPopup(false)
   }
 
+  const handleFollow = () => {
+    // 팔로우 버튼 클릭 시 구현
+  }
+
+  const onShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'NOTODO',
+        text: '내가 만든 낫투두리스트, 구경 하러 와~!',
+        // yourcalendar/본인이메일 추가
+        url: 'https://98ca-122-35-214-41.ngrok-free.app/yourcalendar/mesmerize_@nate.com',
+      })
+    }
+    else
+      alert("공유하기가 지원되지 않는 환경 입니다.")
+  }
+
   useEffect(() => {
     const width = divRef.current.offsetWidth
     setModalWidth(`${width}px`)
@@ -28,28 +45,33 @@ export default function Header() {
   return (
     <>
       {
-        !location.pathname.includes('/search') &&
-        <S.Wrapper className={!location.pathname.includes('/notodo') && !location.pathname.includes('/follow') ? "on" : ""} ref={divRef}>
-          {location.pathname.includes('/follow') && <S.Title>친구 목록</S.Title>}
-          {location.pathname.includes('/setting') && <S.Title>설정</S.Title>}
-          {location.pathname.includes('/calendar') &&
+        !location.pathname.includes('search') &&
+        <S.Wrapper className={!location.pathname.includes('notodo') && !location.pathname.includes('follow') ? "on" : ""} ref={divRef}>
+          {location.pathname.includes('follow') && <S.Title>친구 목록</S.Title>}
+          {location.pathname.includes('setting') && <S.Title>설정</S.Title>}
+          {location.pathname.includes('calendar') &&
             <S.Div>
               <div></div>
-              <img src={Logo} width="80px" />
+              <img src={Logo} width="80px" alt='로고' />
 
-              {/* 친구 페이지에서는 팔로우 버튼으로 */}
-              <button onClick={() => { }}>
-                <img src={iconShare} />
-              </button>
+              {
+                location.pathname.includes('/my') ?
+                  <button onClick={onShare}>
+                    <img src={iconShare} alt='공유 아이콘' />
+                  </button> :
+                  <button onClick={handleFollow}>
+                    <p>팔로우</p>
+                  </button>
+              }
             </S.Div>}
           {location.pathname.includes('/notodo') &&
             <S.Div>
-              <button onClick={() => { navigate("/calendar") }}>
-                <img src={iconCalendar} />
+              <button onClick={() => navigate("/mycalendar")}>
+                <img src={iconCalendar} alt='캘린더 아이콘' />
               </button>
-              <img src={Logo} width="80px" />
-              <button onClick={() => { setShowPopup(true) }}>
-                <img src={iconDesc} />
+              <img src={Logo} width="80px" alt='로고' />
+              <button onClick={() => setShowPopup(true)}>
+                <img src={iconDesc} alt='도움말 아이콘' />
               </button>
             </S.Div>}
         </S.Wrapper>
