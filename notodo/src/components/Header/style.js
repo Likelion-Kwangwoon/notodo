@@ -21,10 +21,20 @@ export const Title = styled.p`
 `
 
 export const Div = styled.div`
-  margin: 57px 0 13px 0;
+  margin: 57px 0 0 0;
+  min-height: 32px;
 
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
   justify-items: center;
+
+  & > button > p {
+    padding: 8px 16px;
+    font-weight: 600;
+    font-size: 12px;
+    color: ${(props) => props.theme.action.white};
+    background-color: ${(props) => props.theme.action.black};
+    border-radius: 22px;
+  }
 `

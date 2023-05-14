@@ -13,12 +13,13 @@ function LoginPage() {
 
   useEffect(() => {
     if ( token !== "" ) {
-      navigate('/calendar');
+      navigate('/mycalendar');
     }
   },[navigate, token]);
   const handleLogin = () => {
     window.location.href = KAKAO_AUTH_URL;
   }
+  
   return (
     <>
       <TitleLogo src={logo} alt="" />

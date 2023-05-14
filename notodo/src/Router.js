@@ -16,7 +16,8 @@ function Router() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/redirect" element={<KakaoLogin />} />
         <Route element={<MainWrapper />}>
-          <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/mycalendar" element={<CalendarPage />} />
+          <Route path="/yourcalendar/:id" element={<CalendarPage />} />
           <Route path="/notodo" element={<NotodoPage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/follow" element={<FollowListPage />} />

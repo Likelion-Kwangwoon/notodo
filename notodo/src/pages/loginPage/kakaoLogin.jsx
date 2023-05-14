@@ -13,8 +13,9 @@ function KakaoLogin() {
 
   useEffect( () => {
     dispatch(logIn(`Bearer ${token}`));
-    navigate("/calendar")
+    navigate("/mycalendar")
   }, [dispatch, navigate, token]);
+  
   return (
     <div />
   );
