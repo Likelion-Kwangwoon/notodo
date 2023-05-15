@@ -1,12 +1,15 @@
 import * as S from "./style"
 import UserListComp from "./UserListComp"
 
-export default function UserList() {
+export default function UserList({userList}) {
   return (
     <S.ListWrap>
-      <ul>
-        <UserListComp />
-      </ul>
+      {
+        !!userList.length &&
+          <ul>
+            <UserListComp />
+          </ul>
+      }
     </S.ListWrap>
   )
 }

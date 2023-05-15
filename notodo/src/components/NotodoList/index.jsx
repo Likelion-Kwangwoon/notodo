@@ -5,10 +5,11 @@ import iconUpDisabled from '../../assets/icon-suc.svg'
 import iconUpActived from '../../assets/icon-suc-fill.svg'
 import iconDownDisabled from '../../assets/icon-fail.svg'
 import iconDownActived from '../../assets/icon-fail-fill.svg'
-import { postList, getContent, postSuccess, postFail, modifyNotodo, deleteNotodo } from "../../api/api.js"
+import { postList, getContent, postSuccess, postFail, modifyNotodo, deleteNotodo, getFriendNotodo } from "../../api/api.js"
 import DayState from '../DayState'
 import Modal from '../Modal'
 import TodoPopup from '../Popup/TodoPopup'
+import { useParams } from 'react-router-dom'
 
 export default function NotodoList({divRef}) {
   const date = useSelector(state => state.date.date)
@@ -21,10 +22,10 @@ export default function NotodoList({divRef}) {
   const [modalWidth, setModalWidth] = useState("0px")
   const inputRef = useRef(null)
   const timeoutRef = useRef(null)
-
+  const params = useParams()
 
   const fetchData = async () => {
-    const data = await getContent(date)
+    const data = !params.id ? await getContent(date) : await getFriendNotodo(params.id, date)
     setNotodoList(data)
   }
 
@@ -204,10 +205,10 @@ export default function NotodoList({divRef}) {
                   ) :
                     <p>{i.content}</p>}
                 </S.ContentWrap>
-                <button onClick={() => handleItemClick(i.notodoId, "successed")} ><img src={i.status === 1 ? iconUpActived : iconUpDisabled} alt="" /></button>
-                <button onClick={() => handleItemClick(i.notodoId, "failed")}><img src={i.status === 2 ? iconDownActived : iconDownDisabled} alt="" /></button>
+                <button disabled={!!params.id} onClick={() => handleItemClick(i.notodoId, "successed")} ><img src={i.status === 1 ? iconUpActived : iconUpDisabled} alt="" /></button>
+                <button  disabled={!!params.id}  onClick={() => handleItemClick(i.notodoId, "failed")}><img src={i.status === 2 ? iconDownActived : iconDownDisabled} alt="" /></button>
               </S.NotodoLi>
-            )) : <p>새로운 낫투두리스트를 추가해 보세요!</p>
+            )) : <p>{!params.id ? '새로운 낫투두리스트를 추가해 보세요!' : '아직 작성된 낫투두리스트가 없어요!'}</p>
         }
       </S.NotodoWrap>
       {

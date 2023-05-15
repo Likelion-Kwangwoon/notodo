@@ -6,10 +6,10 @@ import objectPlugin from "dayjs/plugin/toObject";
 import weekOfYear from "dayjs/plugin/weekOfYear"
 import iconLeftArrow from "../../assets/icon-leftArrow.svg"
 import iconRightArrow from "../../assets/icon-rightArrow.svg"
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setDate } from "../../redux/slice/dateSlice";
-import { getContent } from "../../api/api";
+import { getContent, getFriendNotodo } from "../../api/api";
 import { failList, resetList, sucList } from "../../redux/slice/listSlice";
 
 dayjs.extend(objectPlugin);
@@ -22,6 +22,8 @@ export default function Calendar() {
   const [stateArr, setStateArr] = useState([])
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const params = useParams()
+  const location = useLocation()
 
   const printPercentage = async (month) => {
     const arr = []
@@ -30,7 +32,8 @@ export default function Calendar() {
     const startDay = month.startOf('month').date()
     const endDay = month.endOf('month').date()
     for (let i = startDay; i < endDay; i++) {
-      arr.push(getContent(dayjs(`${month.year()}-${month.month() + 1}-${i}`).format('YYYY-MM-DD')))
+      if (location.pathname.includes('/yourcalendar')) arr.push(getFriendNotodo(params.id ,dayjs(`${month.year()}-${month.month() + 1}-${i}`).format('YYYY-MM-DD')))
+      else arr.push(getContent(dayjs(`${month.year()}-${month.month() + 1}-${i}`).format('YYYY-MM-DD')))
     }
 
     const res = await Promise.all(arr)
@@ -68,7 +71,9 @@ export default function Calendar() {
   }
 
   const handleGetDay = (date) => {
-    dispatch(setDate(dayjs(`${date.year}-${(date.month + 1)}-${(date.day)}`).format('YYYY-MM-DD'))) && navigate('/notodo')
+    dispatch(setDate(dayjs(`${date.year}-${(date.month + 1)}-${(date.day)}`).format('YYYY-MM-DD')))
+    if (location.pathname.includes('/yourcalendar')) navigate(`/notodo/${params.id}`)
+    else navigate('/notodo')
   }
 
   const nextMonth = () => {

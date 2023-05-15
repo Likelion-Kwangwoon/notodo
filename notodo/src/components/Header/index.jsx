@@ -64,7 +64,7 @@ export default function Header() {
                   </button>
               }
             </S.Div>}
-          {location.pathname.includes('/notodo') &&
+          {location.pathname.includes('notodo') &&
             <S.Div>
               <button onClick={() => navigate("/mycalendar")}>
                 <img src={iconCalendar} alt='캘린더 아이콘' />
