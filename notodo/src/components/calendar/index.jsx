@@ -71,7 +71,9 @@ export default function Calendar() {
   }
 
   const handleGetDay = (date) => {
-    dispatch(setDate(dayjs(`${date.year}-${(date.month + 1)}-${(date.day)}`).format('YYYY-MM-DD'))) && navigate('/notodo')
+    dispatch(setDate(dayjs(`${date.year}-${(date.month + 1)}-${(date.day)}`).format('YYYY-MM-DD')))
+    if (location.pathname.includes('/yourcalendar')) navigate(`/notodo/${params.id}`)
+    else navigate('/notodo')
   }
 
   const nextMonth = () => {
