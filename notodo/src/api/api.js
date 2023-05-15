@@ -2,12 +2,6 @@ import axios from "axios";
 import store from "../redux/store";
 
 const baseURL = process.env.REACT_APP_URL;
-const CancelToken = axios.CancelToken;
-let cancel;
-
-if (cancel !== undefined) {
-  cancel('cancel');
-}
 
 const instanceUtil = axios.create({
   baseURL,
@@ -113,3 +107,26 @@ export const deleteNotodo = async (data) => {
   }
 };
 
+export const getFollowingList = async (data) => {
+  try {
+    const response = await instanceUtil.get("/friend/list");
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
+export const getFriendNotodo = async (email, date) => {
+  try {
+    const response = await instanceUtil.get(
+      `/friend/view?email=${email}&date=${date}`
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
