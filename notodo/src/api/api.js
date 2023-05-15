@@ -118,3 +118,15 @@ export const getFollowingList = async (data) => {
   }
 };
 
+export const getFriendNotodo = async (email, date) => {
+  try {
+    const response = await instanceUtil.get(
+      `/friend/view?email=${email}&date=${date}`
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
