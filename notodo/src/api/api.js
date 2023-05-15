@@ -113,3 +113,12 @@ export const deleteNotodo = async (data) => {
   }
 };
 
+export const searchUser = async (data) => {
+  try {
+    const response = await instanceUtil.get(`/friend/search?email=${data}`);
+    return response.data;
+  } catch (error) {
+    return null;
+  }
+}
+
