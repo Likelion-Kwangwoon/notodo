@@ -1,11 +1,15 @@
 import * as S from "./style"
 import { useState } from 'react'
+import { followUser } from '../../../api/api'
 import Modal from "../../Modal"
 
 export default function SearchedListComp(props) {
   const [showPopup, setShowPopup] = useState(false)
   const handleCancel = () => {
     setShowPopup(false)
+  }
+  const handleFollow = (data) => {
+    followUser({ "email":data })
   }
   return (
     <>
@@ -30,14 +34,14 @@ export default function SearchedListComp(props) {
               props.user.friend?
               <div>
                 <p>정말 삭제하시겠습니까?</p>
-                <button>네</button>
-                <button>아니오</button>
+                <button onClick={handleCancel}>네</button>
+                <button onClick={handleCancel}>아니오</button>
               </div>
               :
               <div>
                 <p>팔로우 하시겠습니까?</p>
-                <button>네</button>
-                <button>아니오</button>
+                <button onClick={handleFollow(props.user.email)}>네</button>
+                <button onClick={handleCancel}>아니오</button>
               </div>
             }
           </S.FollowModal>

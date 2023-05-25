@@ -108,7 +108,7 @@ export const deleteNotodo = async (data) => {
 };
 
 
-export const getFollowingList = async (data) => {
+export const getFollowingList = async () => {
   try {
     const response = await instanceUtil.get("/friend/list");
 
@@ -141,4 +141,13 @@ export const searchUser = async (data) => {
   }
 }
 
+export const followUser = async(email) => {
+  try {
+    const response = await instanceUtil.post(`/friend/add`,email);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+}
 
