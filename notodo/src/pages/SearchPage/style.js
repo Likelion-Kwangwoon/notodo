@@ -15,15 +15,22 @@ export const SearchWrap = styled.div`
   margin: 60px 0 0 0;
   padding: 0 10px;
   display: grid;
-  grid-template-columns: 1fr 9fr;
+  grid-template-columns: 9fr 1fr;
   align-items: center;
   justify-items: center;
   overflow: hidden;
+
+  & > input {
+    &:focus {
+      border: 1.5px solid ${(props) => props.theme.action.black};
+  }
+  }
 `
-export const EraseButton = styled.button`
+export const SearchButton = styled.button`
   padding: 15%;
   background-color: ${(props) => props.theme.action.white};
   border-radius: 22px;
+  
 `
 export const SearchBox = styled.input`
   width: 90%;
@@ -36,9 +43,7 @@ export const SearchBox = styled.input`
     font-size: 14px;
     font-style: ${(props) => props.theme.gray.g3};
   }
-  &.empty {
-    border: 1.5px solid ${(props) => props.theme.action.black};
-  }
+  
 `
 export const ListWrap = styled.section`
   margin-top: 100px;

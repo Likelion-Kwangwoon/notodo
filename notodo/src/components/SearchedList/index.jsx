@@ -5,19 +5,10 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 export default function SearchedList(props) {
-  const [searchedData, setSearchedData] = useState([]);
-  useEffect(() => {
-    const handlelist = async () => {
-      const data = await searchUser(props.keyword);
-      setSearchedData(data);
-    }
-    handlelist();
-  },[props]);
-  
   return(
     <S.ListWrap>
       {
-        !searchedData
+        !props.result.email
           ?
           <div><p>찾으려는 이메일을 검색해보세요</p></div>
           :
@@ -29,7 +20,7 @@ export default function SearchedList(props) {
             //   </div>
             // )
             
-            <SearchedListComp user={searchedData} />
+            <SearchedListComp user={props.result} />
           }
           </S.List>
       }
