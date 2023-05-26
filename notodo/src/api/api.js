@@ -17,8 +17,7 @@ instanceUtil.interceptors.request.use(
 
     if (!!token && expirationTime > new Date().getTime()) {
       config.headers.Authorization = token;
-    }
-    else {
+    } else {
       sessionStorage.clear();
       window.location.replace("/");
     }
@@ -39,7 +38,6 @@ export const getContent = async (date) => {
     return error;
   }
 };
-
 
 export const getAllContent = async () => {
   try {
@@ -98,7 +96,9 @@ export const modifyNotodo = async (data) => {
 
 export const deleteNotodo = async (data) => {
   try {
-    const response = await instanceUtil.delete(`/notodo/delete`, data);
+    const response = await instanceUtil.delete(`/notodo/delete`, {
+      data: data,
+    });
 
     return response.data;
   } catch (error) {
@@ -106,7 +106,6 @@ export const deleteNotodo = async (data) => {
     return error;
   }
 };
-
 
 export const getFollowingList = async () => {
   try {
@@ -139,15 +138,14 @@ export const searchUser = async (data) => {
   } catch (error) {
     return null;
   }
-}
+};
 
-export const followUser = async(email) => {
+export const followUser = async (email) => {
   try {
-    const response = await instanceUtil.post(`/friend/add`,email);
+    const response = await instanceUtil.post(`/friend/add`, email);
     return response.data;
   } catch (error) {
     console.error(error);
     return error;
   }
-}
-
+};
