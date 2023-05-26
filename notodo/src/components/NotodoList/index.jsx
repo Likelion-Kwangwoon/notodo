@@ -159,7 +159,11 @@ export default function NotodoList({divRef}) {
   }
 
   const handleDelete = async id => {
-    await deleteNotodo(popupId)
+    const data = {
+      "notodoId": popupId
+    }
+
+    await deleteNotodo(data)
     setShowPopup(false)
   }
 
