@@ -11,7 +11,8 @@ export default function SearchPage() {
   const [result, setResult] = useState({});
 
   const handleSearchEvent = e => {
-    const regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+    const regExp = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i
+
     if (e.key === 'Enter')
       if (e.target.value.match(regExp) !== null) {
         e.target.value ? handleSearch() : setResult({})
@@ -21,7 +22,7 @@ export default function SearchPage() {
   const handleSearch = async () => {
     const data = await searchUser(keyword);
 
-    data === 500 ? alert('존재하지 않는 이메일입니다.') : setResult(data);
+    data?.status === 500 ? alert('존재하지 않는 이메일입니다.') : setResult(data);
   }
 
   return (

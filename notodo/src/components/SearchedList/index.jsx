@@ -2,7 +2,8 @@ import * as S from "./style"
 import SearchedListComp from"./SearchedListComp";
 
 export default function SearchedList(props) {
-  return(
+
+  return (
     <S.ListWrap>
       {
         !(props.result && props.result.email) 
