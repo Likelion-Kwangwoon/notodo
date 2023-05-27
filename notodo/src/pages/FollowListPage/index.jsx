@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getFollowerList, getFollowingList } from "../../api/api"
-import UserList from "../../components/UserList"
+import UserListComp from "../../components/UserListComp"
 import * as S from "./style"
 
 export default function FollowListPage() {
@@ -27,7 +27,16 @@ export default function FollowListPage() {
         <S.TabNav className={isFollower && 'on'} onClick={() => setIsFollower(true)}>팔로워</S.TabNav>
         <S.TabNav className={!isFollower && 'on'} onClick={() => setIsFollower(false)}>팔로잉</S.TabNav>
       </S.NavWrap>
-      <UserList userList={followList} isFollower={isFollower} />
+      <S.ListWrap>
+      {
+        !!followList.length &&
+        <ul>
+            {followList.map((user, idx) =>
+                <UserListComp isFollower={isFollower} key={idx} user={user} />
+              )}
+          </ul>
+      }
+    </S.ListWrap>
     </>
   )
 }
