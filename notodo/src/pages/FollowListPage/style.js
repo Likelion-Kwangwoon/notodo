@@ -19,3 +19,7 @@ export const TabNav = styled.button`
     border-bottom: 2px solid ${(props) => props.theme.action.black};
   }
 `;
+
+export const ListWrap = styled.section`
+  margin: 26px 20px;
+`;

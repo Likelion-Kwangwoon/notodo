@@ -4,6 +4,8 @@ export const UserLi = styled.li`
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-bottom: 12px;
+
   & > img {
     width: 50px;
     height: 50px;
@@ -28,21 +30,5 @@ export const UserLi = styled.li`
 
   & > button {
     margin-left: auto;
-  }
-`;
-
-export const DelModal = styled.div`
-  background-color: ${(props) => props.theme.action.white};
-  border-radius: 10px;
-  padding: 29px 47px;
-  width: max-content;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  & > p {
-    font-size: 14px;
-    margin-bottom: 16px;
   }
 `;

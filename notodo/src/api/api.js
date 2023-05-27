@@ -28,6 +28,17 @@ instanceUtil.interceptors.request.use(
   }
 );
 
+export const getUserInfo = async () => {
+  try {
+    const response = await instanceUtil.get(`/notodo/memberinfo`);
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
 export const getContent = async (date) => {
   try {
     const response = await instanceUtil.get(`/notodo/view?date=${date}`);
@@ -118,6 +129,17 @@ export const getFollowingList = async () => {
   }
 };
 
+export const getFollowerList = async () => {
+  try {
+    const response = await instanceUtil.get("/friend/viewfollwers");
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
 export const getFriendNotodo = async (email, date) => {
   try {
     const response = await instanceUtil.get(
@@ -136,13 +158,24 @@ export const searchUser = async (data) => {
     const response = await instanceUtil.get(`/friend/search?email=${data}`);
     return response.data;
   } catch (error) {
-    return null;
+    return error.response;
   }
 };
 
 export const followUser = async (email) => {
   try {
     const response = await instanceUtil.post(`/friend/add`, email);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
+export const deleteFollower = async (email) => {
+  try {
+    const response = await instanceUtil.post(`/friend/deletefollwer`, email);
+
     return response.data;
   } catch (error) {
     console.error(error);
