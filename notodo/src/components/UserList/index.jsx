@@ -6,8 +6,10 @@ export default function UserList({userList}) {
     <S.ListWrap>
       {
         !!userList.length &&
-          <ul>
-            <UserListComp />
+        <ul>
+            {userList.map(user =>
+                <UserListComp key={user.email} user={user} />
+              )}
           </ul>
       }
     </S.ListWrap>

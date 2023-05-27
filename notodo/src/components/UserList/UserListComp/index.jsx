@@ -1,8 +1,9 @@
 import { useState } from "react"
 import Modal from "../../Modal"
 import * as S from "./style"
+import { FollowBtn, FollowModal, ModalBtn } from "../../SearchedList/SearchedListComp/style"
 
-export default function UserListComp() {
+export default function UserListComp({ user }) {
   const [showPopup, setShowPopup] = useState(false)
 
   const handleCancel = () => {
@@ -12,21 +13,21 @@ export default function UserListComp() {
   return (
     <>
       <S.UserLi>
-        <img src="https://cdn.pixabay.com/photo/2023/04/23/11/11/flowers-7945521_1280.jpg" alt="" />
+        <img src={user.thumbnail} alt="" />
         <div>
-          <p>홍길동</p>
-          <p>ekdms@naver.com</p>
+          <p>{user.nickname}</p>
+          <p>{user.email}</p>
         </div>
-        <button onClick={() => setShowPopup(true)}>팔로잉</button>
+        <FollowBtn className="sub" onClick={() => setShowPopup(true)}>팔로잉</FollowBtn>
       </S.UserLi>
 
       {showPopup && (
         <Modal onClose={handleCancel}>
-          <S.DelModal>
-            <p>정말 삭제하시겠습니까?</p>
-            <button>네</button>
-            <button>아니오</button>
-          </S.DelModal>
+          <FollowModal>
+            <p>팔로잉을 취소하시겠습니까?</p>
+            <ModalBtn>네</ModalBtn>
+            <ModalBtn className="sub" onClick={() => setShowPopup(false)}>아니오</ModalBtn>
+          </FollowModal>
         </Modal>
       )}
     </>

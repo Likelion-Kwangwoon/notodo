@@ -129,6 +129,17 @@ export const getFollowingList = async () => {
   }
 };
 
+export const getFollowerList = async () => {
+  try {
+    const response = await instanceUtil.get("/friend/list");
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
 export const getFriendNotodo = async (email, date) => {
   try {
     const response = await instanceUtil.get(

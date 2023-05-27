@@ -15,7 +15,8 @@ export default function FollowListPage() {
     setIsFollower(false)
 
     const res = await getFollowingList()
-    setFollowList(res);
+    console.log(res)
+    res && setFollowList(res);
   }
 
   return (
