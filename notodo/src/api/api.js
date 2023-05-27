@@ -182,3 +182,14 @@ export const deleteFollower = async (email) => {
     return error;
   }
 };
+
+export const deleteFollowing = async (email) => {
+  try {
+    const response = await instanceUtil.post(`/friend/delete`, email);
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};

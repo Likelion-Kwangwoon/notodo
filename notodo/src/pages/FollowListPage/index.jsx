@@ -32,7 +32,7 @@ export default function FollowListPage() {
         !!followList.length &&
         <ul>
             {followList.map((user, idx) =>
-                <UserListComp isFollower={isFollower} key={idx} user={user} />
+              <UserListComp isFollower={isFollower} key={idx} user={user} handleIsFollower={handleIsFollower} handleIsFollowing={handleIsFollowing} />
               )}
           </ul>
       }

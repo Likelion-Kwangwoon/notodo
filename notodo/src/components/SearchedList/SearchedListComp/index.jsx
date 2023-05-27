@@ -20,7 +20,7 @@ export default function SearchedListComp(props) {
   }
   return (
     <>
-      <S.UserLi onClick={() => navigate(`/yourcalendar/${props.user.email}`, {state : { user : props }})}>
+      <S.UserLi onClick={() => !props.user.me && navigate(`/yourcalendar/${props.user.email}`, {state : { user : props }})}>
         <img src={props.user.thumbnail} alt="" />
         <div>
           <p>{props.user.nickname}</p>
