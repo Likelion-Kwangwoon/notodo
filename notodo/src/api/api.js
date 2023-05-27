@@ -28,6 +28,17 @@ instanceUtil.interceptors.request.use(
   }
 );
 
+export const getUserInfo = async () => {
+  try {
+    const response = await instanceUtil.get(`/notodo/memberinfo`);
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
 export const getContent = async (date) => {
   try {
     const response = await instanceUtil.get(`/notodo/view?date=${date}`);
