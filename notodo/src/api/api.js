@@ -136,7 +136,7 @@ export const searchUser = async (data) => {
     const response = await instanceUtil.get(`/friend/search?email=${data}`);
     return response.data;
   } catch (error) {
-    return null;
+    return error.response.status;
   }
 };
 

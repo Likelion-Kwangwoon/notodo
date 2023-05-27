@@ -10,9 +10,18 @@ export default function SearchPage() {
   const [keyword, setKeyword] = useState('');
   const [result, setResult] = useState({});
 
+  const handleSearchEvent = e => {
+    const regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+    if (e.key === 'Enter')
+      if (e.target.value.match(regExp) !== null) {
+        e.target.value ? handleSearch() : setResult({})
+      } else alert('올바른 이메일 형식을 입력하세요')
+  }
+
   const handleSearch = async () => {
     const data = await searchUser(keyword);
-    setResult(data);
+
+    data === 500 ? alert('존재하지 않는 이메일입니다.') : setResult(data);
   }
 
   return (
@@ -23,7 +32,7 @@ export default function SearchPage() {
           onBlur={() => setIsFocused(false)}>
           <S.SearchBox
             className={!keyword && 'empty'}
-            onKeyDown={e => e.key ==='Enter' && handleSearch()}
+            onKeyDown={handleSearchEvent}
             onChange={e => setKeyword(e.target.value.toLowerCase())}
             placeholder='이메일을 입력하세요 :)' />
           <S.SearchButton onClick={handleSearch}>
