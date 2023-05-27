@@ -4,6 +4,7 @@ export const UserLi = styled.li`
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-bottom: 12px;
 
   & > img {
     width: 50px;

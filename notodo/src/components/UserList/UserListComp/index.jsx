@@ -3,13 +3,13 @@ import Modal from "../../Modal"
 import * as S from "./style"
 import { FollowBtn, FollowModal, ModalBtn } from "../../SearchedList/SearchedListComp/style"
 
-export default function UserListComp({ user }) {
+export default function UserListComp({ user, isFollower }) {
   const [showPopup, setShowPopup] = useState(false)
 
   const handleCancel = () => {
     setShowPopup(false)
   }
-  
+
   return (
     <>
       <S.UserLi>
@@ -18,7 +18,12 @@ export default function UserListComp({ user }) {
           <p>{user.nickname}</p>
           <p>{user.email}</p>
         </div>
-        <FollowBtn className="sub" onClick={() => setShowPopup(true)}>팔로잉</FollowBtn>
+        {
+          isFollower ?
+            <FollowBtn>팔로우</FollowBtn>
+            :
+            <FollowBtn className="sub" onClick={() => setShowPopup(true)}>팔로잉</FollowBtn>
+        }
       </S.UserLi>
 
       {showPopup && (

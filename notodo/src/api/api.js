@@ -131,7 +131,7 @@ export const getFollowingList = async () => {
 
 export const getFollowerList = async () => {
   try {
-    const response = await instanceUtil.get("/friend/list");
+    const response = await instanceUtil.get("/friend/viewfollwers");
 
     return response.data;
   } catch (error) {
