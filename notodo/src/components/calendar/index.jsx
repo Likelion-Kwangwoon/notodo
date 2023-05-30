@@ -31,7 +31,8 @@ export default function Calendar() {
 
     const startDay = month.startOf('month').date()
     const endDay = month.endOf('month').date()
-    for (let i = startDay; i < endDay; i++) {
+
+    for (let i = startDay; i <= endDay; i++) {
       if (location.pathname.includes('/yourcalendar')) arr.push(getFriendNotodo(params.id ,dayjs(`${month.year()}-${month.month() + 1}-${i}`).format('YYYY-MM-DD')))
       else arr.push(getContent(dayjs(`${month.year()}-${month.month() + 1}-${i}`).format('YYYY-MM-DD')))
     }
