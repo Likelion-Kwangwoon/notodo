@@ -2,19 +2,26 @@ import { useState } from "react"
 import Modal from "../Modal"
 import * as S from "./style"
 import { FollowBtn, FollowModal, ModalBtn } from "../SearchedList/SearchedListComp/style"
-import { deleteFollower } from "../../api/api"
+import { deleteFollower, deleteFollowing } from "../../api/api"
+import { useNavigate } from "react-router-dom"
 
-export default function UserListComp({ user, isFollower, handleIsFollower }) {
+export default function UserListComp({ user, isFollower, handleIsFollower, handleIsFollowing }) {
   const [showPopup, setShowPopup] = useState(false)
+  const navigate = useNavigate()
 
   const handleDeleteFollower = async () => {
     const res = await deleteFollower({ "email": user.email })
     res && handleIsFollower()
   }
 
+  const handleDeleteFollowing = async () => {
+    const res = await deleteFollowing({ "email": user.email })
+    res && handleIsFollowing()
+  }
+
   return (
     <>
-      <S.UserLi>
+      <S.UserLi onClick={() => navigate(`/yourcalendar/${user.email}`, {state : { user : { user } }})}>
         <img src={user.thumbnail} alt="" />
         <div>
           <p>{user.nickname}</p>
@@ -22,9 +29,17 @@ export default function UserListComp({ user, isFollower, handleIsFollower }) {
         </div>
         {
           isFollower ?
-            <FollowBtn className="sub" onClick={() => setShowPopup(true)}>삭제</FollowBtn>
+            <FollowBtn className="sub" onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              setShowPopup(true)
+            }}>삭제</FollowBtn>
             :
-            <FollowBtn className="sub">팔로잉</FollowBtn>
+            <FollowBtn onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              setShowPopup(true)
+            }} className="sub">팔로잉</FollowBtn>
         }
       </S.UserLi>
 
@@ -32,7 +47,7 @@ export default function UserListComp({ user, isFollower, handleIsFollower }) {
         <Modal onClose={() => setShowPopup(false)}>
           <FollowModal>
             <p>정말 삭제하시겠습니까?</p>
-            <ModalBtn onClick={handleDeleteFollower}>네</ModalBtn>
+            <ModalBtn onClick={isFollower ? handleDeleteFollower : handleDeleteFollowing}>네</ModalBtn>
             <ModalBtn className="sub" onClick={() => setShowPopup(false)}>아니오</ModalBtn>
           </FollowModal>
         </Modal>

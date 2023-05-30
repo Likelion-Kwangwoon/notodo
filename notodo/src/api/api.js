@@ -182,3 +182,38 @@ export const deleteFollower = async (email) => {
     return error;
   }
 };
+
+export const deleteFollowing = async (email) => {
+  try {
+    const response = await instanceUtil.post(`/friend/delete`, email);
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
+export const postWithdrawal = async () => {
+  try {
+    const response = await instanceUtil.post(`/notodo/bye`);
+
+    return response.status;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
+export const getOtherNotodoCount = async (data) => {
+  try {
+    const response = await instanceUtil.get(`/friend/count`, {
+      params: data,
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
