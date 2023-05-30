@@ -3,9 +3,11 @@ import Modal from "../Modal"
 import * as S from "./style"
 import { FollowBtn, FollowModal, ModalBtn } from "../SearchedList/SearchedListComp/style"
 import { deleteFollower, deleteFollowing } from "../../api/api"
+import { useNavigate } from "react-router-dom"
 
 export default function UserListComp({ user, isFollower, handleIsFollower, handleIsFollowing }) {
   const [showPopup, setShowPopup] = useState(false)
+  const navigate = useNavigate()
 
   const handleDeleteFollower = async () => {
     const res = await deleteFollower({ "email": user.email })
@@ -19,7 +21,7 @@ export default function UserListComp({ user, isFollower, handleIsFollower, handl
 
   return (
     <>
-      <S.UserLi>
+      <S.UserLi onClick={() => navigate(`/yourcalendar/${user.email}`, {state : { user : { user } }})}>
         <img src={user.thumbnail} alt="" />
         <div>
           <p>{user.nickname}</p>
@@ -27,9 +29,17 @@ export default function UserListComp({ user, isFollower, handleIsFollower, handl
         </div>
         {
           isFollower ?
-            <FollowBtn className="sub" onClick={() => setShowPopup(true)}>삭제</FollowBtn>
+            <FollowBtn className="sub" onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              setShowPopup(true)
+            }}>삭제</FollowBtn>
             :
-            <FollowBtn onClick={() => setShowPopup(true)} className="sub">팔로잉</FollowBtn>
+            <FollowBtn onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              setShowPopup(true)
+            }} className="sub">팔로잉</FollowBtn>
         }
       </S.UserLi>
 
