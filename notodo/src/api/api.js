@@ -193,3 +193,14 @@ export const deleteFollowing = async (email) => {
     return error;
   }
 };
+
+export const postWithdrawal = async () => {
+  try {
+    const response = await instanceUtil.post(`/notodo/bye`);
+
+    return response.status;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
