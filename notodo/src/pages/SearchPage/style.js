@@ -3,16 +3,15 @@ import styled from "styled-components";
 export const NavWrap = styled.header`
   width: 100%;
   max-width: 500px;
-  height: 100px;
+  /* height: 100px; */
   position: fixed;
   z-index: 1;
   top: 0;
   background-color: ${(props) => props.theme.action.white};
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 10px -10px;
 `;
 
 export const SearchWrap = styled.div`
-  margin: 60px 0 0 0;
+  margin: 50px 0 0 0;
   padding: 0 10px;
   display: grid;
   grid-template-columns: 9fr 1fr;
@@ -20,10 +19,8 @@ export const SearchWrap = styled.div`
   justify-items: center;
   overflow: hidden;
 
-  & > input {
-    &:focus {
-      border: 1.5px solid ${(props) => props.theme.action.black};
-    }
+  & > input:focus {
+    border: 1px solid ${(props) => props.theme.action.black};
   }
 `;
 
