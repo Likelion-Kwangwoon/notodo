@@ -24,7 +24,7 @@ const initialState = {
 const persistConfig = {
   key: "token",
   storage,
-  whitelist: ["token"],
+  whitelist: ["token", "date"],
 };
 
 const tokenReducer = createReducer(initialState, (builder) => {
