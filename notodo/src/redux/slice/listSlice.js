@@ -1,35 +1,33 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   length: 0,
   suc: 0,
   fail: 0,
   uncheck: 0,
-}
+};
 
 export const listSlice = createSlice({
   name: "list",
   initialState,
   reducers: {
-    setLength : (state, action) => {
-      state.length = action.payload.length
+    setLength: (state, action) => {
+      state.length = action.payload;
     },
-    sucList : (state, action) => {
-      state.suc += 1
+    sucList: (state, action) => {
+      state.suc += 1;
     },
-    failList : (state, action) => {
+    failList: (state, action) => {
       state.fail += 1;
     },
     resetList: (state) => {
-      state.suc = 0
-      state.fail = 0
-      state.uncheck = 0
-    }
+      state.suc = 0;
+      state.fail = 0;
+      state.uncheck = 0;
+    },
   },
 });
 
-export const { setLength, sucList, failList, resetList } =
-  listSlice.actions;
-
+export const { setLength, sucList, failList, resetList } = listSlice.actions;
 
 export default listSlice.reducer;

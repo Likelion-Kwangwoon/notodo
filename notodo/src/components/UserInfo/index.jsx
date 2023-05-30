@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
-import { getAllContent, getUserInfo } from "../../api/api"
+import { getAllContent, getOtherNotodoCount, getUserInfo } from "../../api/api"
 import { setLength } from "../../redux/slice/listSlice";
 import * as S from "./style"
 
@@ -20,17 +20,18 @@ export default function UserInfo() {
 
   const handleGetAllList = async () => {
     const res = await getAllContent();
-    dispatch(setLength(res))
+    dispatch(setLength(res.length))
   }
 
   const handleGetOtherAllList = async () => {
-    // 친구 노토도 전체 개수 조회
+    const res = await getOtherNotodoCount({ email: location.state.user.user.email });
+     dispatch(setLength(res))
   }
 
   useEffect(() => {
-    handleGetAllList()
+    !params.id ? handleGetAllList() : handleGetOtherAllList()
     !params.id ? handleGetUserInfo() : setUser(location.state.user.user)
-  }, [])
+  }, [params.id])
 
   return (
     user &&

@@ -204,3 +204,16 @@ export const postWithdrawal = async () => {
     return error;
   }
 };
+
+export const getOtherNotodoCount = async (data) => {
+  try {
+    const response = await instanceUtil.get(`/friend/count`, {
+      params: data,
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
