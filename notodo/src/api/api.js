@@ -96,7 +96,7 @@ export const postFail = async (data) => {
 
 export const modifyNotodo = async (data) => {
   try {
-    const response = await instanceUtil.put(`/notodo/put`, data);
+    const response = await instanceUtil.post(`/notodo/put`, data);
 
     return response.data;
   } catch (error) {
@@ -107,9 +107,7 @@ export const modifyNotodo = async (data) => {
 
 export const deleteNotodo = async (data) => {
   try {
-    const response = await instanceUtil.delete(`/notodo/delete`, {
-      data: data,
-    });
+    const response = await instanceUtil.post(`/notodo/delete`, data);
 
     return response.data;
   } catch (error) {
