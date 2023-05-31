@@ -28,7 +28,6 @@ export default function Header() {
   }
 
   const handleFollow = async () => {
-    console.log(location.state)
     const res = await followUser({ "email": location.state.user.email })
     res && setIsFriend(true)
   }
@@ -80,12 +79,12 @@ export default function Header() {
                   <button onClick={onShare}>
                     <img src={iconShare} alt='공유 아이콘' />
                   </button> :
-                  location.state.user.friend ?
-                  <S.FollowBtn className={isFriend && "sub"} onClick={handleFollow}>
+                  isFriend?
+                  <S.FollowBtn className={isFriend && "sub"} onClick={handleUnFollow}>
                     팔로잉
                   </S.FollowBtn>
                   :
-                  <S.FollowBtn className={isFriend && "sub"} onClick={handleUnFollow}>
+                  <S.FollowBtn className={isFriend && "sub"} onClick={handleFollow}>
                     팔로우
                   </S.FollowBtn>
               }

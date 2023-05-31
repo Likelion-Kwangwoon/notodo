@@ -7,7 +7,6 @@ import Modal from "../../Modal"
 export default function SearchedListComp({ result, handleSearch }) {
   const [showPopup, setShowPopup] = useState(false)
   const navigate = useNavigate()
-  console.log(result)
   const handleCancel = () => {
     setShowPopup(false)
   }
