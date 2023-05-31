@@ -1,5 +1,5 @@
 import * as S from './style'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
 import { getUserInfo } from '../../api/api'
 import iconCalendar from '../../assets/icon-calendar.svg'
@@ -12,6 +12,7 @@ import GuidePopup from '../Popup/GuidePopup'
 export default function Header() {
   const navigate = useNavigate()
   const location = useLocation()
+  const params = useParams()
   const divRef = useRef(null)
   const [modalWidth, setModalWidth] = useState("0px")
   const [showPopup, setShowPopup] = useState(false)
@@ -79,7 +80,7 @@ export default function Header() {
             </S.Div>}
           {isNoToDoPage &&
             <S.Div>
-              <button onClick={() => navigate("/mycalendar")}>
+              <button onClick={() => navigate(!params.id ? "/mycalendar" : `/yourcalendar/${params.id}`)}>
                 <img src={iconCalendar} alt='캘린더 아이콘' />
               </button>
               <img src={Logo} width="80px" alt='로고' />

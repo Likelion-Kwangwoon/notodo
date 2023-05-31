@@ -215,3 +215,16 @@ export const getOtherNotodoCount = async (data) => {
     return error;
   }
 };
+
+export const getOtherUserInfo = async (email) => {
+  try {
+    const response = await instanceUtil.get(
+      `/notodo/memberinfotest/?email=${email}`
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
