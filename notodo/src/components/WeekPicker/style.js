@@ -30,9 +30,9 @@ export const PickBtn = styled.button`
       content: "";
       position: absolute;
       padding: 15px;
-      bottom: 5px;
-      left: 50%;
-      transform: translate(-50%);
+      bottom: 4px;
+      left: 60%;
+      transform: translate(-60%);
       z-index: -10;
       background: ${(props) => props.theme.action.black};
       border-radius: 50px;
