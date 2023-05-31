@@ -31,7 +31,7 @@ export default function NotodoList({divRef}) {
 
   useEffect(() => {
     fetchData()
-  }, [date])
+  }, [date, showPopup])
 
   useEffect(() => {
   }, [isEditing])
