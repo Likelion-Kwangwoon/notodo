@@ -1,6 +1,6 @@
 import * as S from './style'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { getUserInfo } from '../../api/api'
 import iconCalendar from '../../assets/icon-calendar.svg'
 import Logo from '../../assets/logo.svg'
@@ -14,7 +14,6 @@ export default function Header() {
   const location = useLocation()
   const params = useParams()
   const divRef = useRef(null)
-  const [modalWidth, setModalWidth] = useState("0px")
   const [showPopup, setShowPopup] = useState(false)
   const [userInfo, setUserInfo] = useState("")
 
@@ -51,12 +50,6 @@ export default function Header() {
     }
   }
 
-  useEffect(() => {
-    const width = divRef.current.offsetWidth
-    setModalWidth(`${width}px`)
-    handleGetUserInfo()
-  }, [location.pathname])
-
   return (
     <>
       {
@@ -92,7 +85,7 @@ export default function Header() {
       }
       {
         showPopup &&
-        <Modal width={modalWidth} onClose={handleCancel}>
+        <Modal onClose={handleCancel}>
           <GuidePopup onClose={handleCancel} />
         </Modal>
       }
