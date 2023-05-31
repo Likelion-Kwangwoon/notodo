@@ -1,7 +1,9 @@
 import * as S from './style'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { useState, useEffect, useRef } from 'react'
-import { getUserInfo, followUser, deleteFollower } from '../../api/api'
+
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useState, useRef } from 'react'
+import { getUserInfo, followUser, deleteFollower  } from '../../api/api'
+
 import iconCalendar from '../../assets/icon-calendar.svg'
 import Logo from '../../assets/logo.svg'
 import iconDesc from '../../assets/icon-desc.svg'
@@ -12,8 +14,8 @@ import GuidePopup from '../Popup/GuidePopup'
 export default function Header() {
   const navigate = useNavigate()
   const location = useLocation()
+  const params = useParams()
   const divRef = useRef(null)
-  const [modalWidth, setModalWidth] = useState("0px")
   const [showPopup, setShowPopup] = useState(false)
   const [userInfo, setUserInfo] = useState("")
   const [isFriend, setIsFriend] = useState(location.pathname.includes("your")? location.state.user.friend : "")
@@ -57,12 +59,6 @@ export default function Header() {
     }
   }
 
-  useEffect(() => {
-    const width = divRef.current.offsetWidth
-    setModalWidth(`${width}px`)
-    handleGetUserInfo()
-  }, [location.pathname])
-
   return (
     <>
       {
@@ -91,7 +87,7 @@ export default function Header() {
             </S.Div>}
           {isNoToDoPage &&
             <S.Div>
-              <button onClick={() => navigate("/mycalendar")}>
+              <button onClick={() => navigate(!params.id ? "/mycalendar" : `/yourcalendar/${params.id}`)}>
                 <img src={iconCalendar} alt='캘린더 아이콘' />
               </button>
               <img src={Logo} width="80px" alt='로고' />
@@ -103,7 +99,7 @@ export default function Header() {
       }
       {
         showPopup &&
-        <Modal width={modalWidth} onClose={handleCancel}>
+        <Modal onClose={handleCancel}>
           <GuidePopup onClose={handleCancel} />
         </Modal>
       }

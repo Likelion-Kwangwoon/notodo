@@ -1,7 +1,7 @@
 import * as S from './style';
 import { useEffect } from "react";
 
-const Modal = ({ children, onClose, width }) => {
+const Modal = ({ children, onClose }) => {
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -16,7 +16,7 @@ const Modal = ({ children, onClose, width }) => {
   }, []);
 
   return (
-    <S.ModalOverlay style={{ width }} onClick={handleOverlayClick}>
+    <S.ModalOverlay onClick={handleOverlayClick}>
       {children}
     </S.ModalOverlay>
   );

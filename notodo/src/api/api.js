@@ -96,7 +96,7 @@ export const postFail = async (data) => {
 
 export const modifyNotodo = async (data) => {
   try {
-    const response = await instanceUtil.put(`/notodo/put`, data);
+    const response = await instanceUtil.post(`/notodo/put`, data);
 
     return response.data;
   } catch (error) {
@@ -107,9 +107,7 @@ export const modifyNotodo = async (data) => {
 
 export const deleteNotodo = async (data) => {
   try {
-    const response = await instanceUtil.delete(`/notodo/delete`, {
-      data: data,
-    });
+    const response = await instanceUtil.post(`/notodo/delete`, data);
 
     return response.data;
   } catch (error) {
@@ -210,6 +208,19 @@ export const getOtherNotodoCount = async (data) => {
     const response = await instanceUtil.get(`/friend/count`, {
       params: data,
     });
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
+export const getOtherUserInfo = async (email) => {
+  try {
+    const response = await instanceUtil.get(
+      `/notodo/memberinfotest/?email=${email}`
+    );
 
     return response.data;
   } catch (error) {
