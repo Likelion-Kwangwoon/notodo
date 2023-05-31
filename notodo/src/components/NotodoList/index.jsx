@@ -78,7 +78,7 @@ export default function NotodoList({divRef}) {
 
   // 리스트 입력 후 엔터키 눌렀을 때 등록 or 수정되게 하는 함수
   const handleInputKeyDown = event => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" &&  event.nativeEvent.isComposing === false) {
       event.preventDefault()
       handleInputBlur()
       setIsEditing({})

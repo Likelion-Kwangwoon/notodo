@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getAllContent, getOtherNotodoCount, getOtherUserInfo, getUserInfo } from "../../api/api"
 import { setLength } from "../../redux/slice/listSlice";
 import * as S from "./style"
