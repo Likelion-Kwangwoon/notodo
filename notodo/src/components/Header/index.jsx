@@ -1,7 +1,7 @@
 import * as S from './style'
 
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { getUserInfo, followUser, deleteFollower  } from '../../api/api'
 
 import iconCalendar from '../../assets/icon-calendar.svg'
@@ -18,7 +18,7 @@ export default function Header() {
   const divRef = useRef(null)
   const [showPopup, setShowPopup] = useState(false)
   const [userInfo, setUserInfo] = useState("")
-  const [isFriend, setIsFriend] = useState(location.pathname.includes("your")? location.state.user.friend : "")
+  const [isFriend, setIsFriend] = useState(false)
   const isFollowPage = location.pathname.includes("follow")
   const isSettingPage = location.pathname.includes("setting")
   const isCalendarPage = location.pathname.includes("calendar")
@@ -59,6 +59,10 @@ export default function Header() {
     }
   }
 
+  useEffect(( ) => {
+    setIsFriend(location.state?.user?.friend)
+  }, [location.state])
+
   return (
     <>
       {
@@ -76,11 +80,11 @@ export default function Header() {
                     <img src={iconShare} alt='공유 아이콘' />
                   </button> :
                   isFriend?
-                  <S.FollowBtn className={isFriend && "sub"} onClick={handleUnFollow}>
+                  <S.FollowBtn className={"sub"} onClick={handleUnFollow}>
                     팔로잉
                   </S.FollowBtn>
                   :
-                  <S.FollowBtn className={isFriend && "sub"} onClick={handleFollow}>
+                  <S.FollowBtn className={"main"} onClick={handleFollow}>
                     팔로우
                   </S.FollowBtn>
               }
