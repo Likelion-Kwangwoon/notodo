@@ -19,7 +19,6 @@ export default function NotodoList({divRef}) {
   const [isEditing, setIsEditing] = useState({})
   const [showPopup, setShowPopup] = useState(false)
   const [popupId, setPopupId] = useState(null)
-  const [modalWidth, setModalWidth] = useState("0px")
   const inputRef = useRef(null)
   const timeoutRef = useRef(null)
   const params = useParams()
@@ -35,11 +34,6 @@ export default function NotodoList({divRef}) {
 
   useEffect(() => {
   }, [isEditing])
-
-  useEffect(() => {
-    const width = divRef.current.offsetWidth
-    setModalWidth(`${width}px`)
-  }, [])
 
   useEffect(() => {
     inputRef.current?.focus()
@@ -222,7 +216,7 @@ export default function NotodoList({divRef}) {
 
       {
         showPopup && (
-          <Modal width={modalWidth} onClose={handleCancel}>
+          <Modal onClose={handleCancel}>
             <TodoPopup id={popupId} onEdit={handleEdit} onDelete={handleDelete} onCancel={handleCancel} />
           </Modal>
         )
