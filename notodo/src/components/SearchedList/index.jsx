@@ -1,17 +1,17 @@
 import * as S from "./style"
 import SearchedListComp from"./SearchedListComp";
 
-export default function SearchedList(props) {
+export default function SearchedList({ result, handleSearch }) {
 
   return (
     <S.ListWrap>
       {
-        !(props.result && props.result.email) 
+        !(result && result.email) 
           ?
           <S.GuideDesc>찾으려는 이메일을 검색해보세요</S.GuideDesc>
           :
           <ul>
-            <SearchedListComp user={props.result} />
+            <SearchedListComp result={result} handleSearch={handleSearch}/>
           </ul>
       }
     </S.ListWrap>

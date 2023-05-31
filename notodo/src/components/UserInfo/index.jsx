@@ -22,15 +22,14 @@ export default function UserInfo() {
     const res = await getAllContent();
     dispatch(setLength(res.length))
   }
-
   const handleGetOtherAllList = async () => {
-    const res = await getOtherNotodoCount({ email: location.state.user.user.email });
-     dispatch(setLength(res))
+    const res = await getOtherNotodoCount({ email: location.state.user.email });
+    dispatch(setLength(res))
   }
 
   useEffect(() => {
     !params.id ? handleGetAllList() : handleGetOtherAllList()
-    !params.id ? handleGetUserInfo() : setUser(location.state.user.user)
+    !params.id ? handleGetUserInfo() : setUser(location.state.user)
   }, [params.id])
 
   return (
