@@ -1,7 +1,9 @@
 import * as S from './style'
+
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useState, useRef } from 'react'
-import { getUserInfo } from '../../api/api'
+import { getUserInfo, followUser, deleteFollower  } from '../../api/api'
+
 import iconCalendar from '../../assets/icon-calendar.svg'
 import Logo from '../../assets/logo.svg'
 import iconDesc from '../../assets/icon-desc.svg'
@@ -16,7 +18,7 @@ export default function Header() {
   const divRef = useRef(null)
   const [showPopup, setShowPopup] = useState(false)
   const [userInfo, setUserInfo] = useState("")
-
+  const [isFriend, setIsFriend] = useState(location.pathname.includes("your")? location.state.user.friend : "")
   const isFollowPage = location.pathname.includes("follow")
   const isSettingPage = location.pathname.includes("setting")
   const isCalendarPage = location.pathname.includes("calendar")
@@ -27,13 +29,20 @@ export default function Header() {
     setShowPopup(false)
   }
 
-  const handleFollow = () => {
-    // 팔로우 버튼 클릭 시 구현
+  const handleFollow = async () => {
+    const res = await followUser({ "email": location.state.user.email })
+    res && setIsFriend(true)
+  }
+
+  const handleUnFollow = async () => {
+    const res = await deleteFollower({ "email": location.state.user.email })
+    res && setIsFriend(false)
   }
 
   const handleGetUserInfo = async () => {
     if (isMyCalendarPage) {
       const res = await getUserInfo()
+
       setUserInfo(res.email)
     }
   }
@@ -66,9 +75,14 @@ export default function Header() {
                   <button onClick={onShare}>
                     <img src={iconShare} alt='공유 아이콘' />
                   </button> :
-                  <button onClick={handleFollow}>
-                    <p>팔로우</p>
-                  </button>
+                  isFriend?
+                  <S.FollowBtn className={isFriend && "sub"} onClick={handleUnFollow}>
+                    팔로잉
+                  </S.FollowBtn>
+                  :
+                  <S.FollowBtn className={isFriend && "sub"} onClick={handleFollow}>
+                    팔로우
+                  </S.FollowBtn>
               }
             </S.Div>}
           {isNoToDoPage &&

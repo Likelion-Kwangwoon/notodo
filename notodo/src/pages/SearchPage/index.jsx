@@ -21,7 +21,6 @@ export default function SearchPage() {
 
   const handleSearch = async () => {
     const data = await searchUser(keyword);
-
     data?.status === 500 ? alert('존재하지 않는 이메일입니다.') : setResult(data);
   }
 
@@ -44,7 +43,7 @@ export default function SearchPage() {
           </S.SearchButton>
         </S.SearchWrap>
       </S.NavWrap>
-      <SearchedList result={result} />
+      <SearchedList result={result} handleSearch={handleSearch}/>
     </>
   )
 }

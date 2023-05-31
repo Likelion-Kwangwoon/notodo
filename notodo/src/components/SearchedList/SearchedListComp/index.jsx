@@ -4,39 +4,40 @@ import { followUser, deleteFollower } from '../../../api/api'
 import { useNavigate } from 'react-router-dom'
 import Modal from "../../Modal"
 
-export default function SearchedListComp(props) {
+export default function SearchedListComp({ result, handleSearch }) {
   const [showPopup, setShowPopup] = useState(false)
   const navigate = useNavigate()
-
   const handleCancel = () => {
     setShowPopup(false)
   }
 
-  const handleFollow = (e, data) => {
+  const handleFollow = async (e) => {
     e.stopPropagation();
     e.preventDefault();
 
-    followUser({ "email": data })
+    const res = await followUser({ "email": result.email })
+    res && handleSearch()
   }
 
-  const handleUnfollow = (e) => {
+  const handleUnfollow = async (e) => {
     e.stopPropagation();
     e.preventDefault();
 
-    deleteFollower({ "email" : props.user.email });
+    const res = await deleteFollower({ "email" : result.email });
+    res && handleSearch()
     handleCancel();
   }
   return (
     <>
-      <S.UserLi onClick={() => props.user.me ? navigate(`/mycalendar`) : navigate(`/yourcalendar/${props.user.email}`, {state : { user : props }})}>
-        <img src={props.user.thumbnail} alt="" />
+      <S.UserLi onClick={() => result.me ? navigate(`/mycalendar`) : navigate(`/yourcalendar/${result.email}`, {state : { user : result }})}>
+        <img src={result.thumbnail} alt="" />
         <div>
-          <p>{props.user.nickname}</p>
-          <p>{props.user.email}</p>
+          <p>{result.nickname}</p>
+          <p>{result.email}</p>
         </div>
         {
-          props.user.me ? <></> :
-            props.user.friend?
+          result.me ? <></> :
+            result.friend?
               <S.FollowBtn className="sub" onClick={e => {
                 e.stopPropagation();
                 e.preventDefault();
@@ -46,7 +47,7 @@ export default function SearchedListComp(props) {
               </S.FollowBtn>
             :
               <S.FollowBtn
-                onClick={(e) => handleFollow(e, props.user.email)}>
+                onClick={(e) => handleFollow(e)}>
                 팔로우
               </S.FollowBtn>
           }
@@ -56,7 +57,7 @@ export default function SearchedListComp(props) {
         <Modal onClose={handleCancel}>
           <S.FollowModal>
             {
-              props.user.friend &&
+              result.friend &&
               <>
                 <p>정말 삭제하시겠습니까?</p>
                 <S.ModalBtn onClick={handleUnfollow}>네</S.ModalBtn>

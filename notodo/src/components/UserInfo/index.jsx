@@ -21,7 +21,6 @@ export default function UserInfo() {
     const res = await getAllContent();
     dispatch(setLength(res.length))
   }
-
   const handleGetOtherAllList = async () => {
     const res = await getOtherNotodoCount({ email: params.id });
      dispatch(setLength(res))
@@ -34,6 +33,7 @@ export default function UserInfo() {
 
   useEffect(() => {
     !params.id ? handleGetAllList() : handleGetOtherAllList()
+
     !params.id ? handleGetUserInfo() : handleGetOtherUserInfo()
   }, [params.id])
 

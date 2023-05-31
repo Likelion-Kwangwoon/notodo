@@ -29,12 +29,28 @@ export const Div = styled.div`
   align-items: center;
   justify-items: center;
 
-  & > button > p {
+  /* & > button > p {
     padding: 8px 16px;
     font-weight: 600;
     font-size: 12px;
     color: ${(props) => props.theme.action.white};
     background-color: ${(props) => props.theme.action.black};
     border-radius: 22px;
-  }
+  } */
 `
+
+export const FollowBtn = styled.button`
+  padding: 8px 16px;
+  font-weight: 600;
+  font-size: 12px;
+  color: ${(props) => props.theme.action.white};
+  background-color: ${(props) => props.theme.action.black};
+  border-radius: 22px;
+  border: 1px solid ${(props) => props.theme.action.black};
+
+  &.sub {
+    color: ${(props) => props.theme.action.black};
+    background-color: ${(props) => props.theme.action.white};
+    box-sizing: border-box;
+  }
+`;
