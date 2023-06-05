@@ -172,9 +172,9 @@ export const followUser = async (email) => {
 
 export const deleteFollower = async (email) => {
   try {
-    const response = await instanceUtil.post(`/friend/delete`, email);
+    const response = await instanceUtil.post(`/friend/deletefollwer`, email);
 
-    return response.data;
+    return response.status;
   } catch (error) {
     console.error(error);
     return error;
@@ -185,7 +185,7 @@ export const deleteFollowing = async (email) => {
   try {
     const response = await instanceUtil.post(`/friend/delete`, email);
 
-    return response.data;
+    return response.status;
   } catch (error) {
     console.error(error);
     return error;
