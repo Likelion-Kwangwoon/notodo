@@ -11,12 +11,14 @@ export default function UserListComp({ user, isFollower, handleIsFollower, handl
 
   const handleDeleteFollower = async () => {
     const res = await deleteFollower({ "email": user.email })
-    res && handleIsFollower()
+    res === 200 && handleIsFollower()
+    setShowPopup(false)
   }
 
   const handleDeleteFollowing = async () => {
     const res = await deleteFollowing({ "email": user.email })
-    res && handleIsFollowing()
+    res === 200 && handleIsFollowing()
+    setShowPopup(false)
   }
 
   return (
