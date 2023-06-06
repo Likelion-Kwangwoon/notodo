@@ -2,7 +2,7 @@ import * as S from './style'
 
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useState, useRef, useEffect } from 'react'
-import { getUserInfo, followUser, deleteFollower  } from '../../api/api'
+import { getUserInfo, followUser, deleteFollowing  } from '../../api/api'
 
 import iconCalendar from '../../assets/icon-calendar.svg'
 import Logo from '../../assets/logo.svg'
@@ -35,7 +35,7 @@ export default function Header() {
   }
 
   const handleUnFollow = async () => {
-    const res = await deleteFollower({ "email": location.state.user.email })
+    const res = await deleteFollowing({ "email": location.state.user.email })
     res && setIsFriend(false)
   }
 
@@ -60,7 +60,8 @@ export default function Header() {
   }
 
   useEffect(( ) => {
-    setIsFriend(location.state?.user?.friend)
+    console.log(location.state)
+    setIsFriend(location.state?.user?.friend || location.state?.user?.following || (location.state?.user?.follower != null))
   }, [location.state])
 
   return (

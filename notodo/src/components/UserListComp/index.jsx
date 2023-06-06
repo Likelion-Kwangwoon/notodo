@@ -23,7 +23,7 @@ export default function UserListComp({ user, isFollower, handleIsFollower, handl
 
   return (
     <>
-      <S.UserLi onClick={() => navigate(`/yourcalendar/${user.email}`, {state : { user : { user } }})}>
+      <S.UserLi onClick={() => navigate(`/yourcalendar/${user.email}`, {state : { user }})}>
         <img src={user.thumbnail} alt="" />
         <div>
           <p>{user.nickname}</p>
