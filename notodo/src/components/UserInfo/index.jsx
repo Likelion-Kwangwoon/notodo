@@ -23,7 +23,7 @@ export default function UserInfo() {
   }
   const handleGetOtherAllList = async () => {
     const res = await getOtherNotodoCount({ email: params.id });
-     dispatch(setLength(res))
+    dispatch(setLength(res))
   }
 
   const handleGetOtherUserInfo = async () => {
